@@ -6,8 +6,7 @@ import { Header } from '@/components/Header'
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div>Name here</div>       
-      <Header />
+      <h1>Hello, Dashboard Page!</h1>
     </main>
   )
 }
