@@ -1,5 +1,15 @@
-export default function WorksPage() {
+import { prisma } from "@/../server"
+
+export default async function WorksPage() {
+    const worksData = await prisma.website.findUnique({
+        where: {page: 'works'}
+    })
     return (
-        <div>Work in Progress</div>
-    )
+        worksData !== null ? 
+    <div>
+        {worksData.field}
+        {worksData.content}
+    </div>
+    :
+    <div></div>)
 }
