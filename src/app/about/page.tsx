@@ -1,6 +1,16 @@
-export default function AboutPage() {
+import { prisma } from "@/../server"
+
+export default async function AboutPage() {
+
+    const aboutData = await prisma.website.findUnique({
+        where: {page: 'about'}
+    })
     return (
+        aboutData !== null ? 
     <div>
-        About me
-    </div>)
+        {aboutData.field}
+        {aboutData.content}
+    </div>
+    :
+    <div></div>)
 }
