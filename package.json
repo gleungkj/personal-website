@@ -7,13 +7,21 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "commit": "cz"
+    "commit": "cz",
+    "seed": "node --loader ts-node/esm -r dotenv/config ./scripts/seed.ts",
+    "server": "node --loader ts-node/esm -r dotenv/config ./server/index.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.28.1",
+    "@google-cloud/cloud-sql-connector": "^1.2.1",
+    "@prisma/client": "^5.8.0",
+    "@vercel/postgres": "^0.5.1",
     "next": "14.0.4",
+    "pg": "^8.11.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "ts-node": "^10.9.2",
+    "vercel": "^33.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -22,6 +30,8 @@
     "commitizen": "^4.3.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
+    "prisma": "^5.8.0",
     "typescript": "^5"
-  }
+  },
+  "type": "module"
 }
