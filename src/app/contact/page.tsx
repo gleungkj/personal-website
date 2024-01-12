@@ -1,4 +1,5 @@
 import { prisma } from "@/../server"
+import { EditPanel } from "@/components/EditPanel"
 
 export default async function ContactPage() {
 
@@ -7,10 +8,13 @@ export default async function ContactPage() {
     })
     return (
        contactData !== null ? 
-        <div>
-            {contactData.field}
-            {contactData.content}
-        </div>
+       <div>
+            <div>
+                {contactData.field}
+                {contactData.content}
+            </div>
+            <EditPanel websiteContents={contactData} />
+       </div>
         :
         <div></div>)
 }
