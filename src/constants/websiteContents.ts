@@ -4,3 +4,10 @@ export interface websiteContents {
     field: string,
     content: string
 }
+
+export const initialValues: websiteContents = {
+    id: '',
+    page: '',
+    field: '',
+    content: ''
+}

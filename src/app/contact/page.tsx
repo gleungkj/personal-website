@@ -1,20 +1,16 @@
 import { prisma } from "@/../server"
 import { EditPanel } from "@/components/EditPanel"
+import { PageTable } from "@/components/PageTable"
+import { websiteContents } from "@/constants/websiteContents"
 
 export default async function ContactPage() {
 
-    const contactData = await prisma.website.findUnique({
+    const contactData:websiteContents[]|null = await prisma.website.findMany({
         where: {page: 'contact'}
     })
     return (
        contactData !== null ? 
-       <div>
-            <div>
-                {contactData.field}
-                {contactData.content}
-            </div>
-            <EditPanel websiteContents={contactData} />
-       </div>
+       <PageTable websiteContents={contactData} /> 
         :
         <div></div>)
 }

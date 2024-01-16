@@ -9,6 +9,7 @@
     "lint": "next lint",
     "commit": "cz",
     "seed": "node --loader ts-node/esm -r dotenv/config ./scripts/seed.ts",
+    "prune": "node --loader ts-node/esm -r dotenv/config ./scripts/deleteContents.ts",
     "server": "node --loader ts-node/esm -r dotenv/config ./server/index.ts"
   },
   "dependencies": {
@@ -16,6 +17,7 @@
     "@google-cloud/cloud-sql-connector": "^1.2.1",
     "@prisma/client": "^5.8.0",
     "@vercel/postgres": "^0.5.1",
+    "formik": "^2.4.5",
     "next": "14.0.4",
     "pg": "^8.11.3",
     "react": "^18",
