@@ -3,6 +3,7 @@
 import { websiteContents } from "@/constants/websiteContents";
 import { Dispatch, SetStateAction, useState } from "react";
 import { EditButton } from "./EditButton";
+import { EditForm } from "./EditForm";
 
 interface editPanelProps {
     websiteContents: websiteContents
@@ -17,7 +18,7 @@ export const EditPanel = ({websiteContents}: editPanelProps) => {
         <div>
             <EditButton setPanelOpen={setIsEditContentPanelOpen} isOpen={isEditContentPanelOpen} />
             {isEditContentPanelOpen && 
-            <div>{websiteContents.page}:{websiteContents.content}</div>}
+            <EditForm websiteContents={websiteContents}/>}
         </div>
         )
 }
