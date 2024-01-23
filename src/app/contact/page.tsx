@@ -1,5 +1,4 @@
 import { prisma } from "@/../server"
-import { EditPanel } from "@/components/EditPanel"
 import { PageTable } from "@/components/PageTable"
 import { websiteContents } from "@/constants/websiteContents"
 
