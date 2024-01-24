@@ -6,8 +6,8 @@ export interface websiteContents {
 }
 
 export const addContentInitialValues = {
-  field: "1",
-  content: "2"
+  field: "",
+  content: ""
 }
 
 export enum websitePageType {

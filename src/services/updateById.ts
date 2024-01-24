@@ -4,7 +4,7 @@ export const updateEntryById = async (
   contents: websiteContents,
 ): Promise<void> => {
   try {
-    await fetch(`http://localhost:3000/${contents.page}/api`, {
+    await fetch(`http://localhost:3000/api`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

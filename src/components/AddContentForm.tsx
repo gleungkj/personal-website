@@ -1,4 +1,5 @@
 import { addContentInitialValues, websiteContents, websitePageType } from "@/constants/websiteContents";
+import { addContentByPageType } from "@/services/addContentByPageType";
 import { Field, Form, Formik } from "formik";
 
 interface addContentFormProps {
@@ -15,6 +16,8 @@ export const AddContentForm = ({pageType}: addContentFormProps) => {
                 field: values.field,
                 content: values.content
             }
+
+            addContentByPageType(newContent)
         } catch (error) {
             return new Error()
         }
