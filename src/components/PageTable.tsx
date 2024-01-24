@@ -1,5 +1,6 @@
-import { websiteContents } from "@/constants/websiteContents";
+import { websiteContents, websitePageType } from "@/constants/websiteContents";
 import { EditPanel } from "./EditPanel";
+import { AddContentPanel } from "./AddContentPanel";
 
 interface pageTableProps {
   websiteContents: websiteContents[];
@@ -17,6 +18,7 @@ export const PageTable: React.FC<pageTableProps> = ({
           <EditPanel websiteContents={content} />
         </div>
       ))}
+      <AddContentPanel pageType={websiteContents[0].page as unknown as websitePageType}/>
     </div>
   );
 };

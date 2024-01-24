@@ -5,6 +5,11 @@ export interface websiteContents {
   content: string;
 }
 
+export const addContentInitialValues = {
+  field: "1",
+  content: "2"
+}
+
 export enum websitePageType {
   about = "about",
   works = "works",
