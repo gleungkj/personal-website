@@ -1,13 +1,12 @@
 export interface websiteContents {
-    id: string,
-    page: string,
-    field: string,
-    content: string
+  id: string;
+  page: websitePageType | string;
+  field: string;
+  content: string;
 }
 
-export const initialValues: websiteContents = {
-    id: '',
-    page: '',
-    field: '',
-    content: ''
+export enum websitePageType {
+  about = "about",
+  works = "works",
+  contact = "contact",
 }

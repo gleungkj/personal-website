@@ -1,24 +1,24 @@
 "use client";
 
 import { websiteContents } from "@/constants/websiteContents";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { EditButton } from "./EditButton";
 import { EditForm } from "./EditForm";
 
 interface editPanelProps {
-    websiteContents: websiteContents
+  websiteContents: websiteContents;
 }
 
-export const EditPanel = ({websiteContents}: editPanelProps) => {
+export const EditPanel = ({ websiteContents }: editPanelProps) => {
+  const [isEditContentPanelOpen, setIsEditContentPanelOpen] = useState(false);
 
-    const [isEditContentPanelOpen, setIsEditContentPanelOpen]=useState(false)
-
-
-    return (
-        <div>
-            <EditButton setPanelOpen={setIsEditContentPanelOpen} isOpen={isEditContentPanelOpen} />
-            {isEditContentPanelOpen && 
-            <EditForm websiteContents={websiteContents}/>}
-        </div>
-        )
-}
+  return (
+    <div>
+      <EditButton
+        setPanelOpen={setIsEditContentPanelOpen}
+        isOpen={isEditContentPanelOpen}
+      />
+      {isEditContentPanelOpen && <EditForm websiteContents={websiteContents} />}
+    </div>
+  );
+};
