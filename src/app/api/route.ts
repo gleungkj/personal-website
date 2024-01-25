@@ -1,5 +1,6 @@
 import { prisma } from "@/../server";
 import { websiteContents, websitePageType } from "@/constants/websiteContents";
+import { NextResponse } from "next/server";
 
 export async function PATCH(request: Request) {
   const updatedContents = (await request.json()) as websiteContents;
@@ -29,4 +30,20 @@ export async function POST(request: Request) {
   });
 
   return Response.json(newContents);
+}
+
+export async function DELETE(request: Request) {
+  const deletedContents = (await request.json()) as websiteContents['id'];
+
+  await prisma.website.delete({
+    where: {
+      id: deletedContents,
+    }
+  });
+
+  return NextResponse.json({
+    message: `entry with id:"${deletedContents}" deleted`
+  }, {
+    status: 200,
+  });
 }
