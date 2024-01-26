@@ -1,3 +1,12 @@
+import { UserButton } from "@clerk/nextjs";
+
 export default function DeveloperPage() {
-  return <div>Developer Page in progress</div>;
+
+  return (<div>
+    
+    Developer Page in progress
+    <div>
+      <UserButton />
+    </div>
+    </div>);
 }
