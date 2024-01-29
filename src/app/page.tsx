@@ -1,26 +1,18 @@
-import Image from "next/image";
 import styles from "./page.module.css";
-import Link from "next/link";
-import { clerkClient } from "@clerk/nextjs";
+import { OrganizationSwitcher, auth, currentUser, useAuth } from "@clerk/nextjs";
+import { User } from "@clerk/nextjs/server";
+import { isAdminUser } from "@/services/utils";
 
-export default async function Home() {
 
-  const adminList = await clerkClient.organizations.getOrganizationMembershipList({
-    organizationId: "org_2bV5ItY4IrVWUVt71KDqm4ZjfLa"
-  })
+export default async function Home() {  
 
-  console.log(adminList)
-
-  const userList = await clerkClient.users.getUserList({
-    orderBy: '-created_at',
-    limit:500
-  })
-
-  console.log(userList)
+  const authenticationDetails = await auth()
 
   return (
-    <main className={styles.main}>
-      <h1>Hello, Dashboard Page!</h1>
-    </main>
+    <OrganizationSwitcher>
+      <main className={styles.main}>
+        <h1>Hello, Dashboard Page!</h1>
+      </main>
+    </OrganizationSwitcher>
   );
 }
