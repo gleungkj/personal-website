@@ -4,12 +4,14 @@ import { Field, Form, Formik } from "formik";
 
 interface addContentFormProps {
     pageType: websitePageType
+    isAdmin: boolean
 }
 
-export const AddContentForm = ({pageType}: addContentFormProps) => {
+export const AddContentForm = ({pageType, isAdmin}: addContentFormProps) => {
     const handleSubmit = async (
         values: {field: string, content: string},
     ): Promise<void | Error> => {
+      if (!isAdmin) return
         try {
             const newContent = {
                 page: pageType,
@@ -37,7 +39,7 @@ export const AddContentForm = ({pageType}: addContentFormProps) => {
           required={true}
           type="text"
         />
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={!isAdmin}>Submit</button>
       </Form>
     </Formik>
     )

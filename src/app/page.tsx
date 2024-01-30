@@ -1,12 +1,12 @@
-import Image from "next/image";
 import styles from "./page.module.css";
-import Link from "next/link";
-import { Header } from "@/components/Header";
+import { OrganizationSwitcher, auth, currentUser, useAuth } from "@clerk/nextjs";
+import { User } from "@clerk/nextjs/server";
 
-export default function Home() {
+export default async function Home() {
+
   return (
-    <main className={styles.main}>
-      <h1>Hello, Dashboard Page!</h1>
-    </main>
+      <main className={styles.main}>
+        <h1>Hello, Dashboard Page!</h1>
+      </main>
   );
 }

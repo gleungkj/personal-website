@@ -4,12 +4,14 @@ import { updateEntryById } from "@/services/updateById";
 
 interface editFormProps {
   websiteContents: websiteContents;
+  isAdmin: boolean
 }
 
-export const EditForm = ({ websiteContents }: editFormProps) => {
+export const EditForm = ({ websiteContents, isAdmin }: editFormProps) => {
   const handleSubmit = async (
     values: websiteContents,
   ): Promise<void | Error> => {
+    if (!isAdmin) return
     try {
       const newContents: websiteContents = {
         id: websiteContents.id,
@@ -38,7 +40,7 @@ export const EditForm = ({ websiteContents }: editFormProps) => {
           required={true}
           type="text"
         />
-        <button type="submit">Submit</button>
+        <button type="submit" disabled={!isAdmin}>Submit</button>
       </Form>
     </Formik>
   );
