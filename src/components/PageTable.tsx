@@ -4,10 +4,11 @@ import { AddContentPanel } from "./AddContentPanel";
 
 interface pageTableProps {
   websiteContents: websiteContents[];
+  isAdmin: boolean
 }
 
 export const PageTable: React.FC<pageTableProps> = ({
-  websiteContents,
+  websiteContents, isAdmin
 }): JSX.Element => {
   return (
     <div>
@@ -15,10 +16,10 @@ export const PageTable: React.FC<pageTableProps> = ({
         <div key={content.id}>
           <div>{content.field}</div>
           <div>{content.content}</div>
-          <EditPanel websiteContents={content} />
+          <EditPanel websiteContents={content} isAdmin={isAdmin}/>
         </div>
       ))}
-      <AddContentPanel pageType={websiteContents[0].page as unknown as websitePageType}/>
+      <AddContentPanel pageType={websiteContents[0].page as unknown as websitePageType} isAdmin={isAdmin}/>
     </div>
   );
 };

@@ -8,9 +8,10 @@ import { DeleteButton } from "./DeleteButton";
 
 interface editPanelProps {
   websiteContents: websiteContents;
+  isAdmin: boolean
 }
 
-export const EditPanel = ({ websiteContents }: editPanelProps) => {
+export const EditPanel = ({ websiteContents, isAdmin }: editPanelProps) => {
   const [isEditContentPanelOpen, setIsEditContentPanelOpen] = useState(false);
 
   return (
@@ -19,8 +20,8 @@ export const EditPanel = ({ websiteContents }: editPanelProps) => {
         setPanelOpen={setIsEditContentPanelOpen}
         isOpen={isEditContentPanelOpen}
       />
-      <DeleteButton id={websiteContents.id} />
-      {isEditContentPanelOpen && <EditForm websiteContents={websiteContents} />}
+      <DeleteButton id={websiteContents.id} isAdmin={isAdmin}/>
+      {isEditContentPanelOpen && <EditForm websiteContents={websiteContents} isAdmin={isAdmin}/>}
     </div>
   );
 };

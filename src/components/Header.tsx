@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "../app/page.module.css";
 import Head from "next/head";
+import { OrganizationSwitcher } from "@clerk/nextjs";
 
 export const Header = (): JSX.Element => {
   return (
@@ -11,6 +12,7 @@ export const Header = (): JSX.Element => {
         <Link href="/works">Works</Link>
         <Link href="/contact">Contact</Link>
         <Link href="/developer">Developer Portal</Link>
+        <OrganizationSwitcher />
       </div>
     </div>
   );
