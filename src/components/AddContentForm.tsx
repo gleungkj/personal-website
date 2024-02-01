@@ -1,6 +1,7 @@
 import { addContentInitialValues, websiteContents, websitePageType } from "@/constants/websiteContents";
 import { addContentByPageType } from "@/services/addContentByPageType";
 import { Field, Form, Formik } from "formik";
+import { useRouter } from "next/navigation";
 
 interface addContentFormProps {
     pageType: websitePageType
@@ -8,6 +9,9 @@ interface addContentFormProps {
 }
 
 export const AddContentForm = ({pageType, isAdmin}: addContentFormProps) => {
+
+    const router = useRouter()
+
     const handleSubmit = async (
         values: {field: string, content: string},
     ): Promise<void | Error> => {
@@ -19,7 +23,8 @@ export const AddContentForm = ({pageType, isAdmin}: addContentFormProps) => {
                 content: values.content
             }
 
-            addContentByPageType(newContent)
+            await addContentByPageType(newContent)
+            router.refresh()
         } catch (error) {
             return new Error()
         }

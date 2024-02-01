@@ -1,6 +1,7 @@
 import { websiteContents } from "@/constants/websiteContents";
 import { Field, Form, Formik } from "formik";
 import { updateEntryById } from "@/services/updateById";
+import { useRouter } from "next/navigation";
 
 interface editFormProps {
   websiteContents: websiteContents;
@@ -8,6 +9,9 @@ interface editFormProps {
 }
 
 export const EditForm = ({ websiteContents, isAdmin }: editFormProps) => {
+
+  const router = useRouter()
+
   const handleSubmit = async (
     values: websiteContents,
   ): Promise<void | Error> => {
@@ -20,7 +24,8 @@ export const EditForm = ({ websiteContents, isAdmin }: editFormProps) => {
         content: values.content,
       };
 
-      updateEntryById(newContents);
+      await updateEntryById(newContents);
+      router.refresh()
     } catch (error) {
       return new Error();
     }

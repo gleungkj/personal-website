@@ -2,11 +2,7 @@ import { UserButton } from "@clerk/nextjs";
 
 export default function DeveloperPage() {
 
-  return (<div>
-    
+  return (<div>    
     Developer Page in progress
-    <div>
-      <UserButton />
-    </div>
     </div>);
 }
