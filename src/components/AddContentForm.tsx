@@ -1,14 +1,14 @@
-import { addContentInitialValues, websiteContents, websitePageType } from "@/constants/websiteContents";
+import { addContentInitialValues, websitePageType } from "@/constants/websiteContents";
 import { addContentByPageType } from "@/services/addContentByPageType";
 import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/navigation";
 
-interface addContentFormProps {
+interface IAddContentFormProps {
     pageType: websitePageType
     isAdmin: boolean
 }
 
-export const AddContentForm = ({pageType, isAdmin}: addContentFormProps) => {
+export const AddContentForm = ({pageType, isAdmin}: IAddContentFormProps) => {
 
     const router = useRouter()
 

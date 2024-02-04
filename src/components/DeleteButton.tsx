@@ -1,13 +1,13 @@
-import { websiteContents } from "@/constants/websiteContents";
+import { IWebsiteContents } from "@/constants/websiteContents";
 import { deleteEntryById } from "@/services/deleteById";
 import { useRouter } from "next/navigation";
 
-interface deleteButtonProps {
-    id: websiteContents["id"],
+interface IDeleteButtonProps {
+    id: IWebsiteContents["id"],
     isAdmin: boolean    
 }
 
-export const DeleteButton = ({ id, isAdmin }: deleteButtonProps) => {
+export const DeleteButton = ({ id, isAdmin }: IDeleteButtonProps) => {
 
   const router = useRouter()
 
@@ -22,5 +22,5 @@ export const DeleteButton = ({ id, isAdmin }: deleteButtonProps) => {
     }
   };
 
-  return <button data-testid={`DeleteButton-${id}`} onClick={handleClick} disabled={!isAdmin}>Delete Contents</button>;
+  return <button onClick={handleClick} disabled={!isAdmin}>Delete Contents</button>;
 };

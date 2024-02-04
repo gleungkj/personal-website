@@ -1,4 +1,4 @@
-export interface websiteContents {
+export interface IWebsiteContents {
   id: string;
   page: websitePageType | string;
   field: string;

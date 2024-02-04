@@ -1,13 +1,13 @@
-import { websiteContents, websitePageType } from "@/constants/websiteContents";
+import { IWebsiteContents, websitePageType } from "@/constants/websiteContents";
 import { EditPanel } from "./EditPanel";
 import { AddContentPanel } from "./AddContentPanel";
 
-interface pageTableProps {
-  websiteContents: websiteContents[];
+interface IPageTableProps {
+  websiteContents: IWebsiteContents[];
   isAdmin: boolean
 }
 
-export const PageTable: React.FC<pageTableProps> = ({
+export const PageTable: React.FC<IPageTableProps> = ({
   websiteContents, isAdmin
 }): JSX.Element => {
   return (
