@@ -1,26 +1,31 @@
-import { websiteContents } from "@/constants/websiteContents";
+import { IWebsiteContents } from "@/constants/websiteContents";
 import { Field, Form, Formik } from "formik";
 import { updateEntryById } from "@/services/updateById";
+import { useRouter } from "next/navigation";
 
-interface editFormProps {
-  websiteContents: websiteContents;
+interface IEditFormProps {
+  websiteContents: IWebsiteContents;
   isAdmin: boolean
 }
 
-export const EditForm = ({ websiteContents, isAdmin }: editFormProps) => {
+export const EditForm = ({ websiteContents, isAdmin }: IEditFormProps) => {
+
+  const router = useRouter()
+
   const handleSubmit = async (
-    values: websiteContents,
+    values: IWebsiteContents,
   ): Promise<void | Error> => {
     if (!isAdmin) return
     try {
-      const newContents: websiteContents = {
+      const newContents: IWebsiteContents = {
         id: websiteContents.id,
         page: websiteContents.page,
         field: values.field,
         content: values.content,
       };
 
-      updateEntryById(newContents);
+      await updateEntryById(newContents);
+      router.refresh()
     } catch (error) {
       return new Error();
     }

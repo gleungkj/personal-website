@@ -1,11 +1,11 @@
 import { Dispatch, SetStateAction } from "react";
 
-interface editButtonProps {
+interface IEditButtonProps {
   setPanelOpen: Dispatch<SetStateAction<boolean>>;
   isOpen: boolean;
 }
 
-export const EditButton = ({ setPanelOpen, isOpen }: editButtonProps) => {
+export const EditButton = ({ setPanelOpen, isOpen }: IEditButtonProps) => {
   const handleClick = () => {
     setPanelOpen(!isOpen);
   };

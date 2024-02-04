@@ -1,17 +1,17 @@
 "use client";
 
-import { websiteContents } from "@/constants/websiteContents";
+import { IWebsiteContents } from "@/constants/websiteContents";
 import { useState } from "react";
 import { EditButton } from "./EditButton";
 import { EditForm } from "./EditForm";
 import { DeleteButton } from "./DeleteButton";
 
-interface editPanelProps {
-  websiteContents: websiteContents;
+interface IEditPanelProps {
+  websiteContents: IWebsiteContents;
   isAdmin: boolean
 }
 
-export const EditPanel = ({ websiteContents, isAdmin }: editPanelProps) => {
+export const EditPanel = ({ websiteContents, isAdmin }: IEditPanelProps) => {
   const [isEditContentPanelOpen, setIsEditContentPanelOpen] = useState(false);
 
   return (

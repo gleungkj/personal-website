@@ -1,6 +1,6 @@
 import { prisma } from "@/../server";
 import { PageTable } from "@/components/PageTable";
-import { websiteContents } from "@/constants/websiteContents";
+import { IWebsiteContents } from "@/constants/websiteContents";
 import { auth } from "@clerk/nextjs";
 
 export default async function WorksPage() {
@@ -9,7 +9,7 @@ export default async function WorksPage() {
 
   const isAdmin = authenticationDetails.orgRole === 'org:admin'
 
-  const worksData: websiteContents[] | null = await prisma.website.findMany({
+  const worksData: IWebsiteContents[] | null = await prisma.website.findMany({
     where: { page: "works" },
   });
 

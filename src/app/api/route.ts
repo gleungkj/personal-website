@@ -1,9 +1,9 @@
 import { prisma } from "@/../server";
-import { websiteContents, websitePageType } from "@/constants/websiteContents";
+import { IWebsiteContents } from "@/constants/websiteContents";
 import { NextResponse } from "next/server";
 
 export async function PATCH(request: Request) {
-  const updatedContents = (await request.json()) as websiteContents;
+  const updatedContents = (await request.json()) as IWebsiteContents;
 
   await prisma.website.update({
     where: {
@@ -19,7 +19,7 @@ export async function PATCH(request: Request) {
 }
 
 export async function POST(request: Request) {
-  const newContents = (await request.json()) as websiteContents;
+  const newContents = (await request.json()) as IWebsiteContents;
 
   await prisma.website.create({
     data: {
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
 }
 
 export async function DELETE(request: Request) {
-  const deletedContents = (await request.json()) as websiteContents['id'];
+  const deletedContents = (await request.json()) as IWebsiteContents['id'];
 
   await prisma.website.delete({
     where: {

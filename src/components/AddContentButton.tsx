@@ -1,7 +1,6 @@
-import { websitePageType } from "@/constants/websiteContents";
 import { Dispatch, SetStateAction } from "react";
 
-interface addContentButtonProps {
+interface IAddContentButtonProps {
   setPanelOpen: Dispatch<SetStateAction<boolean>>;
   isOpen: boolean;
 }
@@ -9,7 +8,7 @@ interface addContentButtonProps {
 export const AddContentButton = ({
   setPanelOpen,
   isOpen,
-}: addContentButtonProps) => {
+}: IAddContentButtonProps) => {
   const handleClick = () => {
     setPanelOpen(!isOpen);
   };

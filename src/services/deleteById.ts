@@ -1,7 +1,7 @@
-import { websiteContents } from "@/constants/websiteContents";
+import { IWebsiteContents } from "@/constants/websiteContents";
 
 export const deleteEntryById = async (
-  id: websiteContents['id'],
+  id: IWebsiteContents['id'],
 ): Promise<void> => {
   try {
     await fetch(`http://localhost:3000/api`, {

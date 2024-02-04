@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "commit": "cz",
+    "test": "jest",
     "seed": "node --loader ts-node/esm -r dotenv/config ./scripts/seed.ts",
     "prune": "node --loader ts-node/esm -r dotenv/config ./scripts/deleteContents.ts",
     "server": "node --loader ts-node/esm -r dotenv/config ./server/index.ts"
@@ -26,14 +27,20 @@
     "vercel": "^33.0.1"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.1",
+    "@testing-library/react": "^14.1.2",
+    "@types/jest": "^29.5.11",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "commitizen": "^4.3.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "prettier": "3.2.4",
     "prisma": "^5.8.0",
+    "ts-jest": "^29.1.2",
     "typescript": "^5"
   },
   "type": "module"

@@ -5,12 +5,12 @@ import { useState } from "react";
 import { AddContentButton } from "./AddContentButton";
 import { AddContentForm } from "./AddContentForm";
 
-interface addContentPanelProps {
+interface IAddContentPanelProps {
     pageType: websitePageType,
     isAdmin: boolean
 }
 
-export const AddContentPanel = ({pageType, isAdmin}: addContentPanelProps) => {
+export const AddContentPanel = ({pageType, isAdmin}: IAddContentPanelProps) => {
 
     const [isAddContentPanelOpen, setIsAddContentPanelOpen] = useState(false)
 

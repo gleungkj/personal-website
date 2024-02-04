@@ -1,7 +1,7 @@
-import { websiteContents } from "@/constants/websiteContents";
+import { IWebsiteContents } from "@/constants/websiteContents";
 
 export const updateEntryById = async (
-  contents: websiteContents,
+  contents: IWebsiteContents,
 ): Promise<void> => {
   try {
     await fetch(`http://localhost:3000/api`, {
