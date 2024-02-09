@@ -1,4 +1,6 @@
 .field {
+    padding-top: 2vw;
+    padding-bottom: 2vw;
     font-size: 4vw;
     animation: slideInFromBottom;
     animation-duration: 1.5s;
@@ -6,12 +8,14 @@
 }
 
 .table {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
     border: 1px red solid;
 }
 
 .content {
+    padding-top: 1vw;
+    padding-bottom: 1vw;
     font-size: 2vw;
     animation: slideInFromLeft;
     animation-duration: 3s;    

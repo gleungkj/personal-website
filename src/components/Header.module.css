@@ -1,0 +1,60 @@
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(10%, auto));
+    max-width: 100%;
+    width: var(--max-width);
+    text-align: center;
+    column-gap: 2vw;
+    align-items: center;
+  }
+
+.link {
+    display: flex;
+    height: 3vw;
+    background-color: cornflowerblue;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    color:floralwhite;
+}
+
+.link:hover {
+    background-color:blueviolet;
+    animation: slideInFromBottom;
+    animation-duration: 2s;
+    transition-timing-function: ease-in;
+}
+  
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 3vw;
+    padding-bottom: 2vw;
+    font-size: 1.5vw;
+    border-bottom: 0.5vh solid;
+    border-color: darkblue;
+}
+
+.account {
+    display: flex;
+    flex-direction: row;
+    height: 3vw;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        
+    }
+}

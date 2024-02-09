@@ -39,26 +39,7 @@
   font-family: var(--font-mono);
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(16%, auto));
-  max-width: 100%;
-  width: var(--max-width);
-}
 
-.header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 100%;
-}
-
-.accountgrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(10%, auto));
-  max-width: 20%;
-  width: var(--max-width);
-}
 
 .card {
   padding: 1rem 1.2rem;
