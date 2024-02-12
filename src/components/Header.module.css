@@ -1,7 +1,7 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(6, minmax(10%, auto));
+    grid-template-columns: repeat(6, minmax(20%, auto));
     max-width: 100%;
     width: var(--max-width);
     text-align: center;
@@ -17,6 +17,11 @@
     text-align: center;
     align-items: center;
     color:floralwhite;
+}
+
+.developerLogin {
+    grid-column-start: 6;
+    font-size: 1vw;
 }
 
 .link:hover {
