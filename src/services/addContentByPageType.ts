@@ -5,8 +5,9 @@ export const addContentByPageType = async (contents: {
     field: string,
     content: string
 }): Promise<void> => {
+
     try {
-        await fetch(`http://localhost:3000/api`, {
+        await fetch(`/api`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

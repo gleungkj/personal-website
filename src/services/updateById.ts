@@ -3,8 +3,9 @@ import { IWebsiteContents } from "@/constants/websiteContents";
 export const updateEntryById = async (
   contents: IWebsiteContents,
 ): Promise<void> => {
-  try {
-    await fetch(`http://localhost:3000/api`, {
+
+    try {
+      await fetch(`/api`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

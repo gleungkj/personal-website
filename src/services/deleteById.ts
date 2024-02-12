@@ -3,8 +3,9 @@ import { IWebsiteContents } from "@/constants/websiteContents";
 export const deleteEntryById = async (
   id: IWebsiteContents['id'],
 ): Promise<void> => {
-  try {
-    await fetch(`http://localhost:3000/api`, {
+
+    try {
+      await fetch(`/api`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
