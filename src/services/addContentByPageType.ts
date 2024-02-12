@@ -5,8 +5,9 @@ export const addContentByPageType = async (contents: {
     field: string,
     content: string
 }): Promise<void> => {
+  const url = await process.env.VERCEL_URL === undefined ? 'http://localhost:3000' : process.env.VERCEL_URL
     try {
-        await fetch(`http://localhost:3000/api`, {
+        await fetch(`${url}/api`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
