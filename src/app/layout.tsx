@@ -4,6 +4,8 @@ import "./globals.css";
 import { ClerkProvider, auth } from "@clerk/nextjs";
 import { Header } from "@/components/Header";
 import styles from "./layout.module.css"
+import Image from "next/image";
+import bannerTemplate from '@/constants/bannerTemplate.jpg'
 
 const roboto = Roboto({ weight: "400", subsets: ['latin'] });
 
@@ -29,6 +31,10 @@ export default async function RootLayout({
           <div className={styles.rootLayout} >
 
           <Header isLoggedIn={isLoggedIn}/>
+          <Image className={styles.background}
+          src={bannerTemplate}
+          fill={true}
+          alt='Background image'/>
           {children}
           </div>
         </body>

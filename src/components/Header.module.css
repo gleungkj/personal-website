@@ -12,7 +12,7 @@
 .link {
     display: flex;
     height: 3vw;
-    background-color: cornflowerblue;
+    background-color: #00A5E9;
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -25,7 +25,7 @@
 }
 
 .link:hover {
-    background-color:blueviolet;
+    background-color:#003A6B;
     animation: slideInFromBottom;
     animation-duration: 2s;
     transition-timing-function: ease-in;
@@ -38,11 +38,11 @@
     max-width: 100%;
     padding-left: 10%;
     padding-right: 10%;
-    padding-top: 3vw;
-    padding-bottom: 2vw;
+    padding-top: 2vw;
+    padding-bottom: 1.5vw;
     font-size: 1.5vw;
     border-bottom: 0.5vh solid;
-    border-color: darkblue;
+    border-color: #003A6B;
 }
 
 .account {
