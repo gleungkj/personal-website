@@ -1,6 +1,8 @@
 import { IWebsiteContents } from "@/constants/websiteContents";
 import { deleteEntryById } from "@/services/deleteById";
 import { useRouter } from "next/navigation";
+import { NonAdminWarningPanel } from "./NonAdminWarningPanel";
+import {useState} from 'react'
 
 interface IDeleteButtonProps {
     id: IWebsiteContents["id"],
@@ -9,6 +11,7 @@ interface IDeleteButtonProps {
 
 export const DeleteButton = ({ id, isAdmin }: IDeleteButtonProps) => {
 
+  const [isWarned, setIsWarned] = useState(false)
   const router = useRouter()
 
   const handleClick = async (): Promise<void|Error> => {
@@ -22,5 +25,16 @@ export const DeleteButton = ({ id, isAdmin }: IDeleteButtonProps) => {
     }
   };
 
-  return <button onClick={handleClick} disabled={!isAdmin}>Delete Contents</button>;
+  const handleMouseOver = (id: string): void => {
+    if (id === id) {
+      setIsWarned(!isAdmin)
+    }
+  }
+
+  return (
+  <div>
+    <button id={`deleteButton-${id}`} onClick={handleClick} disabled={!isAdmin} onMouseOver={() => handleMouseOver(id)} onMouseLeave={() => setIsWarned(false)}>Delete Contents  
+    </button>
+    {isWarned && <NonAdminWarningPanel />}
+  </div>)
 };

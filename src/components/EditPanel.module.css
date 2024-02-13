@@ -1,0 +1,4 @@
+.editPanel {
+    display: flex;
+    flex-direction: row;
+}

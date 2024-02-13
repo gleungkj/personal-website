@@ -6,6 +6,8 @@ import { EditButton } from "./EditButton";
 import { EditForm } from "./EditForm";
 import { DeleteButton } from "./DeleteButton";
 
+import styles from '@/components/EditPanel.module.css'
+
 interface IEditPanelProps {
   websiteContents: IWebsiteContents;
   isAdmin: boolean
@@ -15,7 +17,7 @@ export const EditPanel = ({ websiteContents, isAdmin }: IEditPanelProps) => {
   const [isEditContentPanelOpen, setIsEditContentPanelOpen] = useState(false);
 
   return (
-    <div>
+    <div className={styles.editPanel}>
       <EditButton
         setPanelOpen={setIsEditContentPanelOpen}
         isOpen={isEditContentPanelOpen}
