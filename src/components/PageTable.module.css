@@ -9,8 +9,11 @@
 
 .table {
     margin-left: 10%;
-    margin-right: 10%;
-    border: 1px red solid;
+    /* border: 1px red solid; */
+    overflow: auto;
+    height: 75vh;
+    scrollbar-color: #003A6B transparent;
+    border-bottom: 0.5vh #003A6B solid
 }
 
 .content {
@@ -20,6 +23,15 @@
     animation: slideInFromLeft;
     animation-duration: 3s;    
     transition-timing-function: ease-out
+}
+
+.table::-webkit-scrollbar-thumb {
+    background: #003A6B;
+    border-radius: 1vw
+}
+
+.table::-webkit-scrollbar {
+    background: transparent;
 }
 
 
