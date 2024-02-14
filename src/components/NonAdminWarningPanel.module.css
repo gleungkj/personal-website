@@ -5,6 +5,7 @@
     animation-duration: 1s;
     transition-timing-function: ease-in-out;
     width: 10vw;
+    text-align: center;
 }
 
 @keyframes fadeIn {
