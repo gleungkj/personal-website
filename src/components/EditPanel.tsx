@@ -19,16 +19,16 @@ export const EditPanel = ({ websiteContents, isAdmin }: IEditPanelProps) => {
   const [isWarned, setIsWarned] = useState(false)
 
   return (
-    <div>
     <div className={styles.editPanel}>
-      <EditButton
-        setPanelOpen={setIsEditContentPanelOpen}
-        isOpen={isEditContentPanelOpen}
-      />
-      <DeleteButton id={websiteContents.id} isAdmin={isAdmin} setIsWarned={setIsWarned}/>
-      {isEditContentPanelOpen && <EditForm websiteContents={websiteContents} isAdmin={isAdmin}/>}
-    </div>
-      {isWarned && <NonAdminWarningPanel />}
+      <div className={styles.panelButtons}>
+        <EditButton
+          setPanelOpen={setIsEditContentPanelOpen}
+          isOpen={isEditContentPanelOpen}
+        />
+        <DeleteButton id={websiteContents.id} isAdmin={isAdmin} setIsWarned={setIsWarned}/>      
+      </div>
+    {isWarned && <NonAdminWarningPanel />}
+    {isEditContentPanelOpen && <EditForm websiteContents={websiteContents} isAdmin={isAdmin}/>}
     </div>
   );
 };

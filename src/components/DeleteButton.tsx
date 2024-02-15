@@ -1,8 +1,8 @@
 import { IWebsiteContents } from "@/constants/websiteContents";
 import { deleteEntryById } from "@/services/deleteById";
 import { useRouter } from "next/navigation";
-import { NonAdminWarningPanel } from "./NonAdminWarningPanel";
-import {Dispatch, SetStateAction, useState} from 'react'
+import {Dispatch, SetStateAction} from 'react'
+import styles from '@/components/Button.module.css'
 
 interface IDeleteButtonProps {
     id: IWebsiteContents["id"],
@@ -25,12 +25,8 @@ export const DeleteButton = ({ id, isAdmin, setIsWarned }: IDeleteButtonProps) =
     }
   };
 
-  // const handleMouseOver = (id: string): void => {
-  //     setIsWarned(!isAdmin)    
-  // }
-
   return (
-    <button id={`deleteButton-${id}`} onClick={handleClick} disabled={!isAdmin} onMouseOver={() => setIsWarned(!isAdmin)} onMouseLeave={() => setIsWarned(false)}>Delete Contents  
+    <button id={`deleteButton-${id}`} className={styles.button} onClick={handleClick} disabled={!isAdmin} onMouseOver={() => setIsWarned(!isAdmin)} onMouseLeave={() => setIsWarned(false)}>Delete Contents  
     </button>
     )
 };

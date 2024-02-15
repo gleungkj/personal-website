@@ -1,0 +1,11 @@
+.button {
+    height: 3vh;
+    background-color: #003A6B;
+    color: #E7EDEB;
+    width: 7vw;    
+}
+
+.button:disabled {
+    background-color: #d3d3d3;
+    color: #808080
+}

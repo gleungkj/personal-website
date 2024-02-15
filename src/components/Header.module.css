@@ -11,12 +11,13 @@
 
 .link {
     display: flex;
-    height: 3vw;
+    height: 5vh;
     background-color: #00A5E9;
     justify-content: center;
     text-align: center;
     align-items: center;
     color:floralwhite;
+    
 }
 
 .developerLogin {

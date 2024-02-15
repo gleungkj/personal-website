@@ -1,6 +1,6 @@
 .field {
-    padding-top: 2vw;
-    padding-bottom: 2vw;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
     font-size: 4vw;
     animation: slideInFromBottom;
     animation-duration: 1.5s;
@@ -9,11 +9,10 @@
 
 .table {
     margin-left: 10%;
-    /* border: 1px red solid; */
     overflow: auto;
     height: 75vh;
     scrollbar-color: #003A6B transparent;
-    border-bottom: 0.5vh #003A6B solid
+    border-bottom: 0.5vh #003A6B solid;
 }
 
 .content {

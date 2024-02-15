@@ -1,4 +1,13 @@
 .editPanel {
     display: flex;
+    flex-direction: column;
+    height: 10vh;
+    width: 15vw;
+}
+
+.panelButtons {
+    display: flex;
+    justify-content: space-between;
     flex-direction: row;
+    height: 3vh;
 }
