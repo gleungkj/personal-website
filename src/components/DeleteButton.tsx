@@ -1,13 +1,16 @@
 import { IWebsiteContents } from "@/constants/websiteContents";
 import { deleteEntryById } from "@/services/deleteById";
 import { useRouter } from "next/navigation";
+import {Dispatch, SetStateAction} from 'react'
+import styles from '@/components/Button.module.css'
 
 interface IDeleteButtonProps {
     id: IWebsiteContents["id"],
-    isAdmin: boolean    
+    isAdmin: boolean
+    setIsWarned: Dispatch<SetStateAction<boolean>>    
 }
 
-export const DeleteButton = ({ id, isAdmin }: IDeleteButtonProps) => {
+export const DeleteButton = ({ id, isAdmin, setIsWarned }: IDeleteButtonProps) => {
 
   const router = useRouter()
 
@@ -22,5 +25,8 @@ export const DeleteButton = ({ id, isAdmin }: IDeleteButtonProps) => {
     }
   };
 
-  return <button onClick={handleClick} disabled={!isAdmin}>Delete Contents</button>;
+  return (
+    <button id={`deleteButton-${id}`} className={styles.button} onClick={handleClick} disabled={!isAdmin} onMouseOver={() => setIsWarned(!isAdmin)} onMouseLeave={() => setIsWarned(false)}>Delete Contents  
+    </button>
+    )
 };

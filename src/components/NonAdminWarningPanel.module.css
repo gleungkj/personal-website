@@ -1,0 +1,17 @@
+.nonAdminWarningPanel {
+    z-index: 10;
+    background-color: #42C3F7;
+    animation: fadeIn;
+    animation-duration: 1s;
+    transition-timing-function: ease-in-out;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

@@ -6,6 +6,9 @@ import { EditButton } from "./EditButton";
 import { EditForm } from "./EditForm";
 import { DeleteButton } from "./DeleteButton";
 
+import styles from '@/components/EditPanel.module.css'
+import { NonAdminWarningPanel } from "./NonAdminWarningPanel";
+
 interface IEditPanelProps {
   websiteContents: IWebsiteContents;
   isAdmin: boolean
@@ -13,15 +16,19 @@ interface IEditPanelProps {
 
 export const EditPanel = ({ websiteContents, isAdmin }: IEditPanelProps) => {
   const [isEditContentPanelOpen, setIsEditContentPanelOpen] = useState(false);
+  const [isWarned, setIsWarned] = useState(false)
 
   return (
-    <div>
-      <EditButton
-        setPanelOpen={setIsEditContentPanelOpen}
-        isOpen={isEditContentPanelOpen}
-      />
-      <DeleteButton id={websiteContents.id} isAdmin={isAdmin}/>
-      {isEditContentPanelOpen && <EditForm websiteContents={websiteContents} isAdmin={isAdmin}/>}
+    <div className={styles.editPanel}>
+      <div className={styles.panelButtons}>
+        <EditButton
+          setPanelOpen={setIsEditContentPanelOpen}
+          isOpen={isEditContentPanelOpen}
+        />
+        <DeleteButton id={websiteContents.id} isAdmin={isAdmin} setIsWarned={setIsWarned}/>      
+      </div>
+    {isWarned && <NonAdminWarningPanel />}
+    {isEditContentPanelOpen && <EditForm websiteContents={websiteContents} isAdmin={isAdmin}/>}
     </div>
   );
 };
