@@ -2,9 +2,58 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  min-height: 85vh;
+}
+
+.contentPanel {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+.field {
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  font-size: 20vh;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  animation: slideInFromBottomField;
+  animation-duration: 2s;
+  transition-timing-function: ease-in;
+}
+
+.content {
+  font-size: 10vh;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  animation: slideInFromBottomContent;
+  animation-duration: 4s;
+  transition-timing-function: ease-in-out;
+}
+
+@keyframes slideInFromBottomField {
+  from {
+    opacity: 0;
+    transform: translateY(100%)
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }  
+}
+
+@keyframes slideInFromBottomContent {
+  0% {
+    opacity: 0;
+    transform: translateY(100%)
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(100%)
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }  
 }
 
 .description {
