@@ -1,6 +1,6 @@
 export interface IWebsiteContents {
   id: string;
-  page: websitePageType | string;
+  page: string;
   field: string;
   content: string;
 }
@@ -11,7 +11,7 @@ export const addContentInitialValues = {
 }
 
 export enum websitePageType {
-  about = "about",
-  works = "works",
-  contact = "contact",
+  "about",
+  "works",
+  "contact",
 }

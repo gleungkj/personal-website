@@ -1,7 +1,5 @@
 import { IWebsiteContents } from "@/constants/websiteContents";
 import styles from "./page.module.css";
-import { OrganizationSwitcher, auth, currentUser, useAuth } from "@clerk/nextjs";
-import { User } from "@clerk/nextjs/server";
 import { prisma } from "../../server";
 
 export default async function Home() {

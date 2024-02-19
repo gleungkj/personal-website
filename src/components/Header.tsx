@@ -1,6 +1,5 @@
 import Link from "next/link";
 import styles from "./Header.module.css";
-import Head from "next/head";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 
 interface IHeaderProps {
