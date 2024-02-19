@@ -1,11 +1,11 @@
 import { fireEvent, render } from '@testing-library/react'
 import { DeleteButton } from "./DeleteButton"
-import { useRouter } from 'next/navigation'
 import * as deleteById from '../services/deleteById'
 
 const mockDeleteButtonProps = {
     id: '1234',
-    isAdmin: false
+    isAdmin: false,
+    setIsWarned: jest.fn()
 }
 
 const mockDeleteButtonPropsAdmin = {...mockDeleteButtonProps}
@@ -19,13 +19,13 @@ jest.mock('../services/deleteById')
 describe('deleteButton', () => {
     it('should render deleteButton', () => {
         
-        const { getByText } = render(<DeleteButton id={mockDeleteButtonProps.id} isAdmin={mockDeleteButtonProps.isAdmin}/>)
+        const { getByText } = render(<DeleteButton id={mockDeleteButtonProps.id} isAdmin={mockDeleteButtonProps.isAdmin} setIsWarned={mockDeleteButtonProps.setIsWarned}/>)
         const button = getByText("Delete Contents")
         expect(button).toBeInTheDocument()
     })
 
     it('should be disabled if isAdmin is false', () => {
-        const { getByText } = render(<DeleteButton id={mockDeleteButtonProps.id} isAdmin={mockDeleteButtonProps.isAdmin}/>)
+        const { getByText } = render(<DeleteButton id={mockDeleteButtonProps.id} isAdmin={mockDeleteButtonProps.isAdmin} setIsWarned={mockDeleteButtonProps.setIsWarned}/>)
         const button = getByText("Delete Contents")
         expect(button).toBeDisabled()
     })
@@ -34,7 +34,7 @@ describe('deleteButton', () => {
         
         mockDeleteButtonPropsAdmin.isAdmin = true
 
-        const { getByText } = render(<DeleteButton id={mockDeleteButtonPropsAdmin.id} isAdmin={mockDeleteButtonPropsAdmin.isAdmin}/>)
+        const { getByText } = render(<DeleteButton id={mockDeleteButtonPropsAdmin.id} isAdmin={mockDeleteButtonPropsAdmin.isAdmin} setIsWarned={mockDeleteButtonProps.setIsWarned}/>)
         const button = getByText("Delete Contents")
         expect(button).toBeEnabled()
 
@@ -46,7 +46,7 @@ describe('deleteButton', () => {
 
         mockDeleteButtonPropsAdmin.isAdmin = true
 
-        const { getByText } = render(<DeleteButton id={mockDeleteButtonPropsAdmin.id} isAdmin={mockDeleteButtonPropsAdmin.isAdmin}/>)
+        const { getByText } = render(<DeleteButton id={mockDeleteButtonPropsAdmin.id} isAdmin={mockDeleteButtonPropsAdmin.isAdmin} setIsWarned={mockDeleteButtonProps.setIsWarned}/>)
 
         const button = getByText("Delete Contents")
 

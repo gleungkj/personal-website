@@ -13,5 +13,5 @@ export const AddContentButton = ({
     setPanelOpen(!isOpen);
   };
 
-  return <button onClick={handleClick}>Add Contents</button>;
+  return <button id='addContentButton' onClick={handleClick}>Add Contents</button>;
 };
