@@ -2,6 +2,7 @@ import { IWebsiteContents } from "@/constants/websiteContents";
 import { Field, Form, Formik } from "formik";
 import { updateEntryById } from "@/services/updateById";
 import { useRouter } from "next/navigation";
+import styles from '@/components/Button.module.css'
 
 interface IEditFormProps {
   websiteContents: IWebsiteContents;
@@ -45,7 +46,7 @@ export const EditForm = ({ websiteContents, isAdmin }: IEditFormProps) => {
           required={true}
           type="text"
         />
-        <button type="submit" disabled={!isAdmin}>Submit</button>
+        <button className={styles.button} type="submit" disabled={!isAdmin}>Submit</button>
       </Form>
     </Formik>
   );

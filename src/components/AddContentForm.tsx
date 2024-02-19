@@ -2,6 +2,7 @@ import { addContentInitialValues, websitePageType } from "@/constants/websiteCon
 import { addContentByPageType } from "@/services/addContentByPageType";
 import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/navigation";
+import styles from '@/components/Button.module.css'
 
 interface IAddContentFormProps {
     pageType: websitePageType
@@ -31,7 +32,7 @@ export const AddContentForm = ({pageType, isAdmin}: IAddContentFormProps) => {
     }
     return (
         <Formik initialValues={addContentInitialValues} onSubmit={handleSubmit}>
-      <Form id="addContentForm">
+      <Form data-testid="addContentForm">
         <Field
           name="field"
           placeholder={addContentInitialValues.field}
@@ -44,7 +45,7 @@ export const AddContentForm = ({pageType, isAdmin}: IAddContentFormProps) => {
           required={true}
           type="text"
         />
-        <button type="submit" disabled={!isAdmin}>Submit</button>
+        <button className={styles.button} type="submit" disabled={!isAdmin}>Submit</button>
       </Form>
     </Formik>
     )

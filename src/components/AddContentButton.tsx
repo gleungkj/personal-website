@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import styles from '@/components/Button.module.css'
 
 interface IAddContentButtonProps {
   setPanelOpen: Dispatch<SetStateAction<boolean>>;
@@ -13,5 +14,5 @@ export const AddContentButton = ({
     setPanelOpen(!isOpen);
   };
 
-  return <button id='addContentButton' onClick={handleClick}>Add Contents</button>;
+  return <button className={styles.button} id='addContentButton' onClick={handleClick}>Add Contents</button>;
 };

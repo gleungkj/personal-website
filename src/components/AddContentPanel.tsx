@@ -16,7 +16,7 @@ export const AddContentPanel = ({pageType, isAdmin}: IAddContentPanelProps) => {
     const [isAddContentPanelOpen, setIsAddContentPanelOpen] = useState(false)
 
     return (
-        <div className={styles.addContentPanel}>
+        <div className={styles.addContentPanel} data-testid='addContentPanel'>
             <AddContentButton setPanelOpen={setIsAddContentPanelOpen} isOpen={isAddContentPanelOpen} />
             {isAddContentPanelOpen && <AddContentForm pageType={pageType} isAdmin={isAdmin}/>}
         </div>
