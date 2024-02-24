@@ -1,8 +1,13 @@
 export interface IWebsiteContents {
   id: string;
-  page: string;
+  page: websitePageType | string;
   field: string;
   content: string;
+}
+
+export interface ILoggedInUserDetails {
+  id: string;
+  isAdmin: boolean
 }
 
 export const addContentInitialValues = {

@@ -1,8 +1,16 @@
 import { prisma } from "@/../server";
 import { IWebsiteContents } from "@/constants/websiteContents";
+import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
 export async function PATCH(request: Request) {
+
+  const { userId, orgRole } = await auth()
+
+  if (userId === null || orgRole !== 'org:admin') {
+    throw new Error('Bad request')
+  }
+
   const updatedContents = (await request.json()) as IWebsiteContents;
 
   await prisma.website.update({
@@ -19,11 +27,18 @@ export async function PATCH(request: Request) {
 }
 
 export async function POST(request: Request) {
+
+  const { userId, orgRole } = await auth()
+
+  if (userId === null || orgRole !== 'org:admin') {
+    throw new Error('Bad request')
+  }
+
   const newContents = (await request.json()) as IWebsiteContents;
 
   await prisma.website.create({
     data: {
-      page: newContents.page,
+      page: newContents.page as string,
       field: newContents.field,
       content: newContents.content,
     },
@@ -33,6 +48,13 @@ export async function POST(request: Request) {
 }
 
 export async function DELETE(request: Request) {
+
+  const { userId, orgRole } = await auth()
+
+  if (userId === null || orgRole !== 'org:admin') {
+    throw new Error('Bad request')
+  }
+  
   const deletedContents = (await request.json()) as IWebsiteContents['id'];
 
   await prisma.website.delete({
