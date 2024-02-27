@@ -1,6 +1,6 @@
 import { prisma } from "@/../server";
-import { PageTable } from "@/components/PageTable";
-import { IWebsiteContents } from "@/constants/websiteContents";
+import { WorksTable } from "@/components/WorksTable";
+import { ILoggedInUserDetails, IWebsiteContents } from "@/constants/websiteContents";
 import { auth } from "@clerk/nextjs";
 
 export default async function WorksPage() {
@@ -9,12 +9,17 @@ export default async function WorksPage() {
 
   const isAdmin = authenticationDetails.orgRole === 'org:admin'
 
+  const loggedInUserDetails: ILoggedInUserDetails = {
+    id: authenticationDetails.userId != null ? authenticationDetails.userId: "",
+    isAdmin: isAdmin
+  }
+
   const worksData: IWebsiteContents[] | null = await prisma.website.findMany({
     where: { page: "works" },
   });
 
   return worksData !== null ? (
-    <PageTable websiteContents={worksData} isAdmin={isAdmin}/>
+    <WorksTable websiteContents={worksData} loggedInUserDetails={loggedInUserDetails}/>
   ) : (
     <div></div>
   );
