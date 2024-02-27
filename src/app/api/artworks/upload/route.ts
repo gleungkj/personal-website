@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs'
  
 export async function POST(request: Request): Promise<NextResponse> {
+
   const body = (await request.json()) as HandleUploadBody;
 
   const { userId, orgRole } = await auth()
@@ -19,6 +20,7 @@ export async function POST(request: Request): Promise<NextResponse> {
       onBeforeGenerateToken: async (
         clientPayload: string | null
       ) => {
+        
         if (clientPayload === null) {
             throw new Error('Unable to upload file');
         } 
@@ -27,15 +29,17 @@ export async function POST(request: Request): Promise<NextResponse> {
           tokenPayload: clientPayload,
         };
       },
-      onUploadCompleted: async ({ blob, tokenPayload }) => {
+      onUploadCompleted: async ({ blob, tokenPayload }) => {    
+        
+        console.log('blob upload completed', blob, tokenPayload);
         try {
-          console.log('blob upload completed', blob, tokenPayload);
+          
         } catch (error) {
           throw new Error('Could not complete upload');
         }
       },
     });
- 
+   
     return NextResponse.json(jsonResponse);
   } catch (error) {
     return NextResponse.json(

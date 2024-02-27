@@ -2,8 +2,6 @@
 
 import { type PutBlobResult } from '@vercel/blob';
 import { upload } from '@vercel/blob/client'
-
-import { useRouter } from "next/navigation";
 import styles from '@/components/Button.module.css'
 import { useRef, useState } from "react";
 import { ILoggedInUserDetails, IWebsiteContents } from '@/constants/websiteContents';
@@ -14,8 +12,6 @@ interface IAddWorksFormProps {
 }
 
 export const AddWorksForm = ({websiteContents,loggedInUserDetails}: IAddWorksFormProps) => {
-
-    const router = useRouter()
 
     const inputFileRef = useRef<HTMLInputElement>(null)
     const [blob, setBlob] = useState<PutBlobResult | null>(null)
@@ -30,7 +26,7 @@ export const AddWorksForm = ({websiteContents,loggedInUserDetails}: IAddWorksFor
  
           const file = inputFileRef.current.files[0];
          
-          const newBlob = await upload(file.name, file, {
+          const newBlob: PutBlobResult = await upload(file.name, file, {
             access: 'public',
             handleUploadUrl: '/api/artworks/upload',
             clientPayload: JSON.stringify({
@@ -39,12 +35,13 @@ export const AddWorksForm = ({websiteContents,loggedInUserDetails}: IAddWorksFor
             })
           });
 
-          setBlob(newBlob);
-            router.refresh()
+          await setBlob(newBlob);
+
         } catch (error) {
             return new Error()
         }
     }
+
     return (
       <div>
         <form onSubmit={handleSubmit} >
