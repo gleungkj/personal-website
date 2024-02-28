@@ -1,0 +1,9 @@
+.workListPanel {
+    display: grid;
+    grid-template-columns: repeat(5, 15%);
+    max-width: 100%;
+    column-gap: 2vw;
+    row-gap: 3vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh
+}
