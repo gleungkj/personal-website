@@ -2,9 +2,9 @@
 
 import { websitePageType } from "@/constants/websiteContents";
 import { useState } from "react";
-import { AddContentButton } from "./AddContentButton";
-import { AddContentForm } from "./AddContentForm";
-import styles from "./AddContentPanel.module.css"
+import { AddContentButton } from "../Button/AddContentButton";
+import { AddContentForm } from "../Form/AddContentForm";
+import styles from "@/components/Panel/AddContentPanel.module.css"
 
 interface IAddContentPanelProps {
     pageType: websitePageType,

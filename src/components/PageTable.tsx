@@ -1,6 +1,6 @@
 import { IWebsiteContents, websitePageType } from "@/constants/websiteContents";
-import { EditPanel } from "./EditPanel";
-import { AddContentPanel } from "./AddContentPanel";
+import { EditPanel } from "./Panel/EditPanel";
+import { AddContentPanel } from "./Panel/AddContentPanel";
 import styles from './PageTable.module.css'
 
 interface IPageTableProps {

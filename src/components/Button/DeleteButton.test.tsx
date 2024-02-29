@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react'
 import { DeleteButton } from "./DeleteButton"
-import * as deleteById from '../services/deleteById'
+import * as deleteById from '../../services/deleteById'
 
 const mockDeleteButtonProps = {
     id: '1234',

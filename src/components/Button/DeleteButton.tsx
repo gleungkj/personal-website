@@ -2,7 +2,7 @@ import { IWebsiteContents } from "@/constants/websiteContents";
 import { deleteEntryById } from "@/services/deleteById";
 import { useRouter } from "next/navigation";
 import {Dispatch, SetStateAction} from 'react'
-import styles from '@/components/Button.module.css'
+import styles from '@/components/Button/Button.module.css'
 
 interface IDeleteButtonProps {
     id: IWebsiteContents["id"],

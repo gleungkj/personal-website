@@ -2,11 +2,11 @@
 
 import { IWebsiteContents } from "@/constants/websiteContents";
 import { useState } from "react";
-import { EditButton } from "./EditButton";
-import { EditForm } from "./EditForm";
-import { DeleteButton } from "./DeleteButton";
+import { EditButton } from "../Button/EditButton";
+import { EditForm } from "../Form/EditForm";
+import { DeleteButton } from "../Button/DeleteButton";
 
-import styles from '@/components/EditPanel.module.css'
+import styles from '@/components/Panel/EditPanel.module.css'
 import { NonAdminWarningPanel } from "./NonAdminWarningPanel";
 
 interface IEditPanelProps {

@@ -2,7 +2,7 @@ import { IWebsiteContents } from "@/constants/websiteContents";
 import { Field, Form, Formik } from "formik";
 import { updateEntryById } from "@/services/updateById";
 import { useRouter } from "next/navigation";
-import styles from '@/components/Button.module.css'
+import styles from '@/components/Button/Button.module.css'
 
 interface IEditFormProps {
   websiteContents: IWebsiteContents;
