@@ -1,6 +1,6 @@
 import { ILoggedInUserDetails, IWebsiteContents } from "@/constants/websiteContents";
 import styles from './PageTable.module.css'
-import { AddWorksPanel } from "./AddWorksPanel";
+import { AddWorksPanel } from "./Panel/AddWorksPanel";
 import { ListBlobResultBlob } from "@vercel/blob";
 
 interface IWorksTableProps {

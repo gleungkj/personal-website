@@ -2,7 +2,7 @@ import { addContentInitialValues, websitePageType } from "@/constants/websiteCon
 import { addContentByPageType } from "@/services/addContentByPageType";
 import { Field, Form, Formik } from "formik";
 import { useRouter } from "next/navigation";
-import styles from '@/components/Button.module.css'
+import styles from '@/components/Button/Button.module.css'
 
 interface IAddContentFormProps {
     pageType: websitePageType

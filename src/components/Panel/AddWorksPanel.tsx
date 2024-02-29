@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from "react";
-import { AddContentButton } from "./AddContentButton";
+import { AddContentButton } from "../Button/AddContentButton";
 import styles from "./AddContentPanel.module.css"
-import { AddWorksForm } from "./AddWorksForm";
+import { AddWorksForm } from "../Form/AddWorksForm";
 import { ILoggedInUserDetails, IWebsiteContents } from "@/constants/websiteContents";
 import { WorkListPanel } from "./WorkListPanel";
 import { ListBlobResultBlob } from "@vercel/blob";
