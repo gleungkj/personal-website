@@ -8,11 +8,15 @@ export async function POST(request: Request): Promise<NextResponse> {
 
   const { userId, orgRole } = await auth()
 
+  console.log(body.payload)
+
   try {
 
     if (userId === null || orgRole !== 'org:admin') {
       throw new Error('Bad request')
     }
+
+    console.log('uploading file')
 
     const jsonResponse = await handleUpload({
       body,
@@ -39,6 +43,8 @@ export async function POST(request: Request): Promise<NextResponse> {
         }
       },
     });
+
+    console.log('upload complete')
    
     return NextResponse.json(jsonResponse);
   } catch (error) {
