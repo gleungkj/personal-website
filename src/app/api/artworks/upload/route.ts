@@ -1,6 +1,7 @@
 import { handleUpload, type HandleUploadBody } from '@vercel/blob/client';
 import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs'
+import { del } from '@vercel/blob';
  
 export async function POST(request: Request): Promise<NextResponse> {
 
@@ -47,6 +48,37 @@ export async function POST(request: Request): Promise<NextResponse> {
     console.log('upload complete')
    
     return NextResponse.json(jsonResponse);
+  } catch (error) {
+    return NextResponse.json(
+      { error: (error as Error).message },
+      { status: 400 }, // The webhook will retry 5 times waiting for a 200
+    );
+  }
+}
+ 
+export async function DELETE(request: Request): Promise<NextResponse> {
+
+  const { searchParams } = new URL(request.url)
+
+  const urlToDelete = searchParams.get('url') as string
+
+  const { userId, orgRole } = await auth()
+
+  const body = (await request.json()) as HandleUploadBody;
+
+  console.log(body.payload)
+
+  try {
+
+    if (userId === null || orgRole !== 'org:admin') {
+      throw new Error('Bad request')
+    }
+
+    await del(urlToDelete)
+
+    console.log('upload complete')
+   
+    return new NextResponse();
   } catch (error) {
     return NextResponse.json(
       { error: (error as Error).message },
