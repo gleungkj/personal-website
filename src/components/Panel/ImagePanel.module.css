@@ -1,0 +1,11 @@
+.imagePanel {
+    display: flex;
+    flex-direction: row;
+    position: relative
+}
+
+.closeButton {
+    position: absolute;
+    margin-top: 0.1vh;
+    right: 0
+}

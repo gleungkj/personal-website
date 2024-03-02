@@ -16,6 +16,7 @@
   "dependencies": {
     "@clerk/nextjs": "^4.29.3",
     "@google-cloud/cloud-sql-connector": "^1.2.1",
+    "@heroicons/react": "^2.1.1",
     "@prisma/client": "^5.8.0",
     "@vercel/blob": "^0.22.1",
     "@vercel/postgres": "^0.5.1",
