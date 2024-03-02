@@ -11,6 +11,8 @@ export async function POST(request: Request): Promise<NextResponse> {
 
   console.log(body.payload)
 
+  console.log(process.env.BLOB_READ_WRITE_TOKEN)
+
   try {
 
     if (userId === null || orgRole !== 'org:admin') {
@@ -44,6 +46,8 @@ export async function POST(request: Request): Promise<NextResponse> {
         }
       },
     });
+
+    console.log(jsonResponse)
 
     console.log('upload complete')
    
