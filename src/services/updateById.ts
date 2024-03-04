@@ -2,7 +2,7 @@ import { IWebsiteContents } from "@/constants/websiteContents";
 
 export const updateEntryById = async (
   contents: IWebsiteContents,
-): Promise<void> => {
+): Promise<void|Error> => {
 
     try {
       await fetch(`/api`, {

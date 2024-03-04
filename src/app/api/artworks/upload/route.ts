@@ -62,15 +62,12 @@ export async function POST(request: Request): Promise<NextResponse> {
  
 export async function DELETE(request: Request): Promise<NextResponse> {
 
-  const { searchParams } = new URL(request.url)
-
-  const urlToDelete = searchParams.get('url') as string
-
   const { userId, orgRole } = await auth()
 
-  const body = (await request.json()) as HandleUploadBody;
+  const imageURL = (await request.json()) as string
 
-  console.log(body.payload)
+  console.log('getting body')
+  console.log(imageURL)
 
   try {
 
@@ -78,9 +75,9 @@ export async function DELETE(request: Request): Promise<NextResponse> {
       throw new Error('Bad request')
     }
 
-    await del(urlToDelete)
+    await del(imageURL)
 
-    console.log('upload complete')
+    console.log(`image deleted, original URL: ${imageURL}`)
    
     return new NextResponse();
   } catch (error) {
