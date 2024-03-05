@@ -22,7 +22,7 @@ export const AddWorksPanel = ({websiteContents,loggedInUserDetails, blobList}: I
         <div className={styles.addContentPanel} data-testid='addContentPanel'>
             <AddContentButton setPanelOpen={setIsAddWorksPanelOpen} isOpen={isAddWorksPanelOpen} />
             {isAddWorksPanelOpen && <AddWorksForm websiteContents={websiteContents} loggedInUserDetails={loggedInUserDetails}/>}
-            <WorkListPanel blobList={blobList}/>
+            <WorkListPanel blobList={blobList} loggedInUserDetails={loggedInUserDetails}/>
         </div>
         )
 }

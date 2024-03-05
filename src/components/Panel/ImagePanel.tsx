@@ -7,12 +7,14 @@ import styles from "./ImagePanel.module.css"
 import { useState } from "react"
 import { deleteImageByURL } from "@/services/deleteImageByURL"
 import { useRouter } from "next/navigation"
+import { ILoggedInUserDetails } from "@/constants/websiteContents"
 
 interface IImagePanelProps {
     image: ListBlobResultBlob
+    loggedInUserDetails: ILoggedInUserDetails
 }
 
-export const ImagePanel = ({image}: IImagePanelProps) => {
+export const ImagePanel = ({image, loggedInUserDetails}: IImagePanelProps) => {
 
     const router = useRouter()
 
@@ -21,6 +23,8 @@ export const ImagePanel = ({image}: IImagePanelProps) => {
     const handleClick = async (): Promise<void|Error> => {
 
         const url = image.url
+
+        if (!loggedInUserDetails.isAdmin) return
         
         try {
             await deleteImageByURL(url)
@@ -32,7 +36,7 @@ export const ImagePanel = ({image}: IImagePanelProps) => {
 
     return (
         <div className={styles.imagePanel}>
-            {isHovered && 
+            {isHovered && loggedInUserDetails.isAdmin && 
             <button  className={styles.closeButton} onClick={handleClick} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
             <XCircleIcon height="2rem" />         
             </button>}   
