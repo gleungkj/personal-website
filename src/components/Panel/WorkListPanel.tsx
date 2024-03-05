@@ -2,20 +2,20 @@
 
 import { ListBlobResultBlob } from '@vercel/blob';
 import styles from "./WorkListPanel.module.css"
-import Link from "next/link";
+import { ImagePanel } from './ImagePanel';
+import { ILoggedInUserDetails } from '@/constants/websiteContents';
 
 interface IWorkListPanelProps {
     blobList: ListBlobResultBlob[]
+    loggedInUserDetails: ILoggedInUserDetails
 }
 
-export const WorkListPanel = ({blobList}: IWorkListPanelProps) => {
+export const WorkListPanel = ({blobList, loggedInUserDetails}: IWorkListPanelProps) => {
        
     return (
     <div className={styles.workListPanel}>
         {blobList?.map((blob, index) => (
-        <Link key={`blobSet-${index}`} id={`blobSet-${index}`} href={blob.url} >
-            <img src={blob.url} alt='blobImage' width="100%"/>
-        </Link>     
+        <ImagePanel image={blob} key={`imageSet-${index}`} loggedInUserDetails={loggedInUserDetails}/> 
         ))}
     </div>)
 }
