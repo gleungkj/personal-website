@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import { ListBlobResultBlob } from "@vercel/blob"
-import '@heroicons/react/24/solid'
 import { XCircleIcon } from "@heroicons/react/24/outline"
 import Link from "next/link"
 import styles from "./ImagePanel.module.css"
