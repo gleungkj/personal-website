@@ -16,10 +16,8 @@ export const Header = ({isLoggedIn}: IHeaderProps): JSX.Element => {
 
   const [scope, animate] = useAnimate()
   
-  useEffect(() => {
-    
-    animate("div", {opacity: 1, y: 0}, {delay: stagger(0.5, {startDelay: 0.25})})
-    
+  useEffect(() => {    
+    animate("div", {opacity: 1, y: 0}, {delay: stagger(0.5, {startDelay: 0.25}), duration: 1})
   })
 
   return (  
