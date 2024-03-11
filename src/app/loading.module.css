@@ -1,0 +1,23 @@
+.loadingPanel {
+    display: flex;
+    flex-direction: column;
+    min-height: 75vh;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 4vh;
+}
+
+.spinner {
+    animation: rotate linear infinite;
+    animation-duration: 4s
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0)
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

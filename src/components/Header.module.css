@@ -1,7 +1,8 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(6, minmax(20%, auto));
+    grid-template-columns: 
+    [first-column]5% [rest]repeat(5, minmax(20%, auto));
     max-width: 100%;
     width: var(--max-width);
     text-align: center;
@@ -9,27 +10,24 @@
     align-items: center;
   }
 
+.homeButton {
+    max-width: 5%;    
+  }
+
 .link {
     display: flex;
     height: 5vh;
-    background-color: #00A5E9;
+    background-color: transparent;
     justify-content: center;
     text-align: center;
     align-items: center;
     color:floralwhite;
-    
+    font-weight: 800;
 }
 
-.developerLogin {
+.linkDeveloper {
     grid-column-start: 6;
     font-size: 1vw;
-}
-
-.link:hover {
-    background-color:#003A6B;
-    animation: slideInFromBottom;
-    animation-duration: 2s;
-    transition-timing-function: ease-in;
 }
   
 .header {
@@ -37,8 +35,8 @@
     flex-direction: row;
     justify-content: space-between;
     max-width: 100%;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
     padding-top: 3vh;
     padding-bottom: 2vh;
     font-size: 1.5vw;
@@ -54,13 +52,3 @@
     text-align: center;
     align-items: center;
   }
-
-@keyframes slideInFromBottom {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-        
-    }
-}

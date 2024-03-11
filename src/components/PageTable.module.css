@@ -2,9 +2,6 @@
     padding-top: 2vh;
     padding-bottom: 2vh;
     font-size: 4vw;
-    animation: slideInFromBottom;
-    animation-duration: 1.5s;
-    transition-timing-function: ease-in-out;    
 }
 
 .table {
@@ -19,9 +16,6 @@
     padding-top: 1vw;
     padding-bottom: 1vw;
     font-size: 2vw;
-    animation: slideInFromLeft;
-    animation-duration: 3s;    
-    transition-timing-function: ease-out
 }
 
 .table::-webkit-scrollbar-thumb {
