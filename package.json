@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "commit": "cz",
-    "test": "jest",
+    "test": "jest --watchAll",
     "seed": "node --loader ts-node/esm -r dotenv/config ./scripts/seed.ts",
     "prune": "node --loader ts-node/esm -r dotenv/config ./scripts/deleteContents.ts",
     "server": "node --loader ts-node/esm -r dotenv/config ./server/index.ts"

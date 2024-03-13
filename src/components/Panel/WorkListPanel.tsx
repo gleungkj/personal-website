@@ -13,7 +13,7 @@ interface IWorkListPanelProps {
 export const WorkListPanel = ({blobList, loggedInUserDetails}: IWorkListPanelProps) => {
        
     return (
-    <div className={styles.workListPanel}>
+    <div className={styles.workListPanel} data-testid="workListPanel">
         {blobList?.map((blob, index) => (
         <ImagePanel image={blob} key={`imageSet-${index}`} loggedInUserDetails={loggedInUserDetails}/> 
         ))}
