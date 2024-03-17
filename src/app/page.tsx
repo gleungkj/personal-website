@@ -1,6 +1,7 @@
 import { IWebsiteContents } from "@/constants/websiteContents";
 import styles from "./page.module.css";
 import { prisma } from "../../server";
+import { ExperiencePanel } from "@/components/Panel/ExperiencePanel";
 
 export default async function Home() {
 
@@ -13,10 +14,11 @@ export default async function Home() {
         <div className={styles.contentPanel}>
           <div className={styles.field}>
           {homeData[0].field}
-          </div>
+          </div>          
           <div className={styles.content}>
           {homeData[0].content}        
           </div>
+          <ExperiencePanel />
         </div>
       </main>
   ) : (

@@ -1,0 +1,10 @@
+.experienceContractedPanel {
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: floralwhite;
+    border-radius: 2vh;
+}
+

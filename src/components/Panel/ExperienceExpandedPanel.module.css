@@ -1,0 +1,42 @@
+.experienceExpandedPanel {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    background-color: floralwhite;
+    z-index: 30;
+
+}
+
+.experiencePanelBackground {
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position:absolute;
+    z-index: 100;
+}
+
+.closeButton {
+    display: flex;
+    background-color: transparent;
+    border-width: 0;
+    border-color: transparent;
+    justify-content: center;
+}
+
+.closeIcon {
+    height: 2rem;
+    width: 2rem
+}
+
+.closeIcon:hover {
+    transform: scale(1.3);
+}

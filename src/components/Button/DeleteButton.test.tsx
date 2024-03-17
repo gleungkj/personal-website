@@ -14,7 +14,7 @@ jest.mock('next/navigation',() => ({
     useRouter: jest.fn().mockReturnValue({ query: {}})
   }))
 
-jest.mock('../services/deleteById')
+jest.mock('../../services/deleteById')
 
 describe('deleteButton', () => {
     it('should render deleteButton', () => {
