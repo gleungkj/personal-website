@@ -1,6 +1,6 @@
 import { prisma } from "@/../server";
 import { WorksTable } from "@/components/WorksTable";
-import { ILoggedInUserDetails, IWebsiteContents } from "@/constants/websiteContents";
+import { ILoggedInUserDetails, IWebsiteContents, websitePageType } from "@/constants/websiteContents";
 import { auth } from "@clerk/nextjs";
 import { list } from '@vercel/blob';
 
@@ -16,7 +16,7 @@ export default async function WorksPage() {
   }
 
   const worksData: IWebsiteContents[] | null = await prisma.website.findMany({
-    where: { page: "works" },
+    where: { page: websitePageType.works },
   });
 
   const { blobs } = await list()

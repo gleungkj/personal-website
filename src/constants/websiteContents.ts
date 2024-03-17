@@ -16,7 +16,8 @@ export const addContentInitialValues = {
 }
 
 export enum websitePageType {
-  "about",
-  "works",
-  "contact",
+  home = 'home',
+  about = "about",
+  works = "works",
+  contact = "contact",
 }
