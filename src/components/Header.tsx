@@ -29,7 +29,6 @@ export const Header = ({isLoggedIn}: IHeaderProps): JSX.Element => {
             <HeaderLink href="/about" label="About"/>
             <HeaderLink href="/works" label="Works"/>
             <HeaderLink href="/contact" label="Contact"/>
-          {/* </div> */}
           {isLoggedIn === false && 
           <Link href="/developer" className={`${styles.link} ${styles.linkDeveloper}`}>Developer Login</Link>}
         </div>

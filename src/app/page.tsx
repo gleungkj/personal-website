@@ -26,7 +26,7 @@ export default async function Home() {
           <div className={styles.content}>
           {frontPageData.content}        
           </div>
-          <ExperiencePanel />
+          {experienceData.map((data) => (<ExperiencePanel experienceData={data}/>))}          
         </div>
       </main>
   ) : (
