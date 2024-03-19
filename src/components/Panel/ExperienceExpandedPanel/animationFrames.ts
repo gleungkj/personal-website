@@ -9,7 +9,7 @@ export const initialFrame: AnimationProps['initial'] = {
     contentVisibility: "hidden"
 }
 
-export const animatedFrame: AnimationProps['animate'] = {
+export const animatedFrameOnOpen: AnimationProps['animate'] = {
     display: "flex",
     justifyContent: "space-between",
     marginTop: "10vh",
@@ -24,6 +24,10 @@ export const animatedFrame: AnimationProps['animate'] = {
     minHeight: "30vh",
 }
 
-export const animatedContent: AnimationProps['animate'] = {
+export const animatedContentOnOpen: AnimationProps['animate'] = {
     contentVisibility: "visible",    
+}
+
+export const animatedContentOnClose: AnimationProps['animate'] = {
+    contentVisibility: 'hidden',
 }

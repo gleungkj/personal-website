@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction, useEffect } from "react"
 import styles from './ExperienceExpandedPanel.module.css'
 import { IWebsiteContents } from "@/constants/websiteContents"
 import { motion, useAnimate } from 'framer-motion'
-import { animatedContent, animatedFrame, initialFrame } from "./animationFrames"
+import { animatedContentOnOpen, animatedFrameOnOpen, initialFrame } from "./animationFrames"
 
 interface IExperienceExpandedPanel {
     data: IWebsiteContents
@@ -18,16 +18,16 @@ export const ExperienceExpandedPanel = ({data, isExpanded, setPanelExpanded}: IE
     const [scope, animate] = useAnimate()
     
     const expandPanelAnimation = async () => {
-        await animate(scope.current, animatedFrame,{ease: "easeInOut", duration: 0.25})
-        await animate(scope.current, animatedContent, {ease: "easeIn", duration: 1, delay: 0.25})
+        await animate(scope.current, animatedFrameOnOpen,{ease: "easeInOut", duration: 0.25})
+        await animate(scope.current, animatedContentOnOpen, {ease: "easeIn", duration: 1, delay: 0.25})
     }
 
     useEffect(() => {
         expandPanelAnimation()
     })
 
-    const handleClick = (): void => {
-        setPanelExpanded(!isExpanded)
+    const handleClick = async (): Promise<void> => {
+        await setPanelExpanded(!isExpanded)
     }
 
     return (        
