@@ -1,8 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import { ExperiencePanel } from "./ExperiencePanel";
 import * as contractedPanel from "@/components/Panel/ExperienceContractedPanel";
-import * as expandedPanel from "@/components/Panel/ExperienceExpandedPanel";
+import * as expandedPanel from "@/components/Panel/ExperienceExpandedPanel/ExperienceExpandedPanel";
 import React from 'react'
+import { IWebsiteContents, websitePageType } from "@/constants/websiteContents";
 
 jest.mock('./ExperienceContractedPanel', () => {
     return {
@@ -11,18 +12,29 @@ jest.mock('./ExperienceContractedPanel', () => {
     };
   });
 
-jest.mock('./ExperienceExpandedPanel', () => {
+jest.mock('../Panel/ExperienceExpandedPanel/ExperienceExpandedPanel', () => {
 return {
     __esModule: true,
-    ...jest.requireActual('./ExperienceExpandedPanel')
+    ...jest.requireActual('../Panel/ExperienceExpandedPanel/ExperienceExpandedPanel')
 };
 });
+
+const mockExperiencePanelData: IWebsiteContents = {
+    id: '1234',
+    page: websitePageType.home,
+    field: '',
+    content: ''
+}
+
+beforeEach(() => {
+    jest.spyOn(expandedPanel, 'ExperienceExpandedPanel').mockReturnValue(<div></div>)
+})
 
 describe('ExperiencePanel', () => {
     it('should contain ExperienceContractedPanel by default', () => {
 
         const spy = jest.spyOn(contractedPanel, 'ExperienceContractedPanel')
-        render(<ExperiencePanel />)
+        render(<ExperiencePanel experienceData={mockExperiencePanelData}/>)
         const panel = screen.getByTestId('ExperiencePanel')
         expect(panel).toBeVisible()
         expect(spy).toHaveBeenCalledTimes(1)
@@ -33,7 +45,7 @@ describe('ExperiencePanel', () => {
         const mockSetIsExpanded = jest.fn()
         const spy = jest.spyOn(expandedPanel, 'ExperienceExpandedPanel')
         jest.spyOn(React, 'useState').mockReturnValue([false, mockSetIsExpanded])
-        render(<ExperiencePanel />)
+        render(<ExperiencePanel experienceData={mockExperiencePanelData}/>)
         const panel = screen.getByTestId('ExperiencePanel')
         expect(panel).toBeVisible()
         expect(spy).toHaveBeenCalledTimes(0)
@@ -43,7 +55,7 @@ describe('ExperiencePanel', () => {
         const mockSetIsExpanded = jest.fn()
         const spy = jest.spyOn(expandedPanel, 'ExperienceExpandedPanel')
         jest.spyOn(React, 'useState').mockReturnValue([true, mockSetIsExpanded])
-        render(<ExperiencePanel />)
+        render(<ExperiencePanel experienceData={mockExperiencePanelData}/>)
         const panel = screen.getByTestId('ExperiencePanel')
         expect(panel).toBeVisible()
         expect(spy).toHaveBeenCalledTimes(1)

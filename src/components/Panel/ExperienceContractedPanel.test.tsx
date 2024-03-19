@@ -1,7 +1,16 @@
 import { fireEvent, render, screen } from "@testing-library/react"
 import { ExperienceContractedPanel } from "./ExperienceContractedPanel"
+import { IWebsiteContents, websitePageType } from "@/constants/websiteContents"
+
+const mockExperienceContractedPanelData: IWebsiteContents = {
+    id: '1234',
+    page: websitePageType.home,
+    field: '',
+    content: ''
+}
 
 const mockExperienceContractPanelProps = {
+    data: mockExperienceContractedPanelData,
     isExpanded: false,
     setPanelExpanded: jest.fn()
 }

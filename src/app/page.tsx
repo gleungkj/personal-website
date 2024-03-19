@@ -1,4 +1,4 @@
-import { IWebsiteContents } from "@/constants/websiteContents";
+import { IWebsiteContents, websitePageType } from "@/constants/websiteContents";
 import styles from "./page.module.css";
 import { prisma } from "../../server";
 import { ExperiencePanel } from "@/components/Panel/ExperiencePanel";
@@ -6,19 +6,27 @@ import { ExperiencePanel } from "@/components/Panel/ExperiencePanel";
 export default async function Home() {
 
   const homeData: IWebsiteContents[] | null = await prisma.website.findMany({
-    where: { page: 'home' },
+    where: { page : websitePageType.home },
   })
 
-  return homeData !== null? (
+  const frontPageData = homeData.find((data) => {
+    return data.field === 'Gavin Leung'
+  })
+
+  const experienceData = homeData.filter((data) => {
+    return data.field === "CV"
+  })
+
+  return frontPageData !== undefined ? (
       <main className={styles.main}>
         <div className={styles.contentPanel}>
           <div className={styles.field}>
-          {homeData[0].field}
+          {frontPageData.field}
           </div>          
           <div className={styles.content}>
-          {homeData[0].content}        
+          {frontPageData.content}        
           </div>
-          <ExperiencePanel />
+          {experienceData.map((data) => (<ExperiencePanel experienceData={data}/>))}          
         </div>
       </main>
   ) : (
