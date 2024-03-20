@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction, useEffect } from "react"
 import styles from './ExperienceExpandedPanel.module.css'
 import { IWebsiteContents } from "@/constants/websiteContents"
 import { motion, useAnimate } from 'framer-motion'
-import { animatedContentOnOpen, animatedFrameOnOpen, initialFrame } from "./animationFrames"
+import { animatedContentFrameOnOpen, animatedPanelFrameOnOpen, initialContentFrame, initialPanelFrame } from "./animationFrames"
 
 interface IExperienceExpandedPanel {
     data: IWebsiteContents
@@ -15,26 +15,29 @@ interface IExperienceExpandedPanel {
 
 export const ExperienceExpandedPanel = ({data, isExpanded, setPanelExpanded}: IExperienceExpandedPanel) => {
 
-    const [scope, animate] = useAnimate()
+    const [panelScope, animatePanelScope] = useAnimate()
+    const [contentScope, animateContentScope] = useAnimate()
     
     const expandPanelAnimation = async () => {
-        await animate(scope.current, animatedFrameOnOpen,{ease: "easeInOut", duration: 0.25})
-        await animate(scope.current, animatedContentOnOpen, {ease: "easeIn", duration: 1, delay: 0.25})
+        await animatePanelScope(panelScope.current, animatedPanelFrameOnOpen,{ease: "easeInOut", duration: 0.25})
+        await animateContentScope(contentScope.current, animatedContentFrameOnOpen, {ease:'easeInOut', duration: 0.5})
     }
 
     useEffect(() => {
         expandPanelAnimation()
-    })
+    },[])
 
     const handleClick = async (): Promise<void> => {
+        await animateContentScope(contentScope.current, initialContentFrame, {ease: 'easeInOut', duration: 0.5})
+        await animatePanelScope(panelScope.current, initialPanelFrame, {ease: "easeInOut", duration: 0.5})
         await setPanelExpanded(!isExpanded)
     }
 
     return (        
         <div className={styles.experiencePanelBackground}
         data-testid='experienceExpandedPanel'> 
-            <motion.div ref={scope} initial={initialFrame}> 
-                <motion.div initial={{opacity: 0}} animate={{opacity: 1}} transition={{ease:'easeInOut', duration: 2} }>
+            <motion.div ref={panelScope} initial={initialPanelFrame} > 
+                <motion.div initial={initialContentFrame} ref={contentScope}>
                     {data.content}
                 </motion.div>
                 <button onClick={handleClick} className={styles.closeButton} title="Close panel">
