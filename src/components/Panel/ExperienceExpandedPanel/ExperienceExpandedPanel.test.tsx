@@ -38,10 +38,10 @@ describe('ExperienceExpandedPanel', () => {
         expect(panel).toBeVisible()
     })
 
-    it('should call setPanelExpanded if clicked', () => {
+    it('should call setPanelExpanded if clicked', async () => {
         render(<ExperienceExpandedPanel {...mockExperienceExpandedPanelProps}/>)
         const closeButton = screen.getByRole('button')
-        fireEvent.click(closeButton)
-        expect(mockExperienceExpandedPanelProps.setPanelExpanded).toHaveBeenCalledTimes(1)
+        await fireEvent.click(closeButton)
+        expect(await mockExperienceExpandedPanelProps.setPanelExpanded).toHaveBeenCalledTimes(1)
     })
 })

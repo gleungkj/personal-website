@@ -34,11 +34,11 @@ export const ExperienceExpandedPanel = ({data, isExpanded, setPanelExpanded}: IE
     }
 
     return (        
-        <div className={styles.experiencePanelBackground}
+        <div key={`expandedPanel-${data.id}`} className={styles.experiencePanelBackground}
         data-testid='experienceExpandedPanel'> 
             <motion.div ref={panelScope} initial={initialPanelFrame} > 
                 <motion.div initial={initialContentFrame} ref={contentScope}>
-                    {data.content}
+                    {data.content.split('\n').map((content) => (<div>{content}</div>))}
                 </motion.div>
                 <button onClick={handleClick} className={styles.closeButton} title="Close panel">
                     <XCircleIcon className={styles.closeIcon}/>
