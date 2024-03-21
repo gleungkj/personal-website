@@ -1,6 +1,4 @@
 .experienceExpandedPanel {
-    display: flex;
-    justify-content: space-between;
     margin-top: 10vh;
     margin-bottom: 10vh;
     margin-left: 10vw;
@@ -11,6 +9,7 @@
     padding-right: 5vw;
     background-color: floralwhite;
     z-index: 30;
+    border-radius: 2vh;
 }
 
 .experiencePanelBackground {

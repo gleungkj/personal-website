@@ -27,15 +27,20 @@ const mockExperiencePanelData: IWebsiteContents = {
 }
 
 beforeEach(() => {
+    jest.spyOn(contractedPanel, 'ExperienceContractedPanel').mockReturnValue(<div></div>)
     jest.spyOn(expandedPanel, 'ExperienceExpandedPanel').mockReturnValue(<div></div>)
 })
 
+afterEach(() => {
+    jest.clearAllMocks()
+})
+
 describe('ExperiencePanel', () => {
-    it('should contain ExperienceContractedPanel by default', () => {
+    it('should contain ExperienceContractedPanel by default', async () => {
 
         const spy = jest.spyOn(contractedPanel, 'ExperienceContractedPanel')
-        render(<ExperiencePanel experienceData={mockExperiencePanelData}/>)
-        const panel = screen.getByTestId('ExperiencePanel')
+        await render(<ExperiencePanel experienceData={mockExperiencePanelData}/>)
+        const panel = await screen.getByTestId('ExperiencePanel')
         expect(panel).toBeVisible()
         expect(spy).toHaveBeenCalledTimes(1)
     })

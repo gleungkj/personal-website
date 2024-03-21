@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
 import styles from './ExperienceContractedPanel.module.css'
 import { IWebsiteContents } from '@/constants/websiteContents'
+import { AnimationProps, motion, useAnimate } from 'framer-motion'
 
 interface IExperienceContractPanelProps {
     data: IWebsiteContents
@@ -8,25 +9,39 @@ interface IExperienceContractPanelProps {
     setPanelExpanded: Dispatch<SetStateAction<boolean>>
 }
 
+const animatedFrame: AnimationProps['animate'] = {   
+        scale: 0.95, 
+        transition:{duration: 0.5},  
+}
+
 export const ExperienceContractedPanel = ({data, isExpanded, setPanelExpanded}: IExperienceContractPanelProps): JSX.Element => {
 
-    const handleClick = (): void => {
+    const [scope, animate] = useAnimate()
+
+    const handleClick = async (): Promise<void> => {
+        await animate(scope.current, animatedFrame)
         setPanelExpanded(!isExpanded)
     }
 
     return (
-        <div key={data.id} className={styles.experienceContractedPanel} onClick={handleClick} data-testid='experienceContractedPanel'>
-            <div className={styles.experienceContent}>
+        <motion.div ref={scope}
+        key={data.id} 
+        className={styles.experienceContractedPanel} onClick={handleClick} data-testid='experienceContractedPanel' whileHover={{
+            scale: 1.05, 
+            transition:{duration: 0.25}
+        }} 
+        >
+            <div key={`contractedPanel-${data.id}`} className={styles.experienceContent}>
                 <div className={styles.contentHeader}>
                 Experience
                 </div>
                 <div className={styles.contentDetails}>
-                {data.content}
+                {data.content.split('\n').map((content) => (<div>{content}</div>))}
                 </div>
             </div>
             <div className={styles.contentInstruction}>
             Click on panel to expand            
             </div>
-        </div>
+        </motion.div>
     )
 }

@@ -4,8 +4,12 @@
     width: 95%;
     justify-content: center;
     align-content: center;
-    background-color: floralwhite;
+    background-color: rgb(229, 236, 253);
     border-radius: 2vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    scale:0.95;
+    opacity: 80%;
 }
 
 .experienceContent {
@@ -14,8 +18,8 @@
     justify-content: space-between;
     padding-left: 5vw;
     padding-right: 5vw;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
 }
 
 .contentHeader {

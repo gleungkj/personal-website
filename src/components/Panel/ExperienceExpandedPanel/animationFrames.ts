@@ -1,15 +1,20 @@
 import { AnimationProps } from "framer-motion"
 
-export const initialFrame: AnimationProps['initial'] = {
+export const initialPanelFrame: AnimationProps['initial'] = {
     y: "10vh",
-    height: "5vh",
+    marginTop: 0,
+    marginBottom: 0,
+    paddingTop: 0,
+    paddingBottom: 0,
     marginLeft: "10vw",
     marginRight: "10vw",
     background: "floralwhite",
-    contentVisibility: "hidden"
+    minHeight: 0,
+    opacity: 0,
+    borderRadius: "2vh"
 }
 
-export const animatedFrame: AnimationProps['animate'] = {
+export const animatedPanelFrameOnOpen: AnimationProps['animate'] = {
     display: "flex",
     justifyContent: "space-between",
     marginTop: "10vh",
@@ -22,8 +27,13 @@ export const animatedFrame: AnimationProps['animate'] = {
     paddingRight: "5vw",
     zIndex: "30",
     minHeight: "30vh",
+    opacity: 1
 }
 
-export const animatedContent: AnimationProps['animate'] = {
-    contentVisibility: "visible",    
+export const initialContentFrame: AnimationProps['initial'] = {
+    opacity: 0
+}
+
+export const animatedContentFrameOnOpen: AnimationProps['animate'] = {
+    opacity: 1
 }
