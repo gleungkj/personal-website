@@ -6,7 +6,7 @@ import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { HomeIcon } from "@heroicons/react/24/outline"
 import { useEffect } from "react";
 import { HeaderLink } from "./HeaderLink";
-import { stagger, useAnimate } from "framer-motion";
+import { stagger, useAnimate, motion } from "framer-motion";
 
 interface IHeaderProps {
   isLoggedIn: boolean
@@ -23,8 +23,10 @@ export const Header = ({isLoggedIn}: IHeaderProps): JSX.Element => {
   return (  
       <div className={styles.header}>
         <div className={styles.grid} ref={scope}>
-        <Link href="/" className={styles.homeButton}>
-        <HomeIcon color="white" height="4vh"></HomeIcon>
+        <Link href="/">
+          <motion.div whileHover={{scale:1.3}} transition={{ease: 'easeIn', duration: 0.25}}>
+            <HomeIcon color="white" height="4vh"></HomeIcon>
+          </motion.div>
         </Link>
             <HeaderLink href="/about" label="About"/>
             <HeaderLink href="/works" label="Works"/>
