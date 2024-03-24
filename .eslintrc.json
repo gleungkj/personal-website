@@ -3,6 +3,7 @@
   "plugin:@typescript-eslint/eslint-recommended",
   "plugin:@typescript-eslint/recommended"],
   "rules": {
-    "no-unused-vars": "error"
+    "no-unused-vars": "error",
+    "no-console": "error"
   }
 }

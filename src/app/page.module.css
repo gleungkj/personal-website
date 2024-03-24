@@ -7,6 +7,7 @@
 
 .contentPanel {
   margin-left: 10vw;
+  padding-left: 5vw;
   height: 75vh;
   scrollbar-color: #003A6B transparent;
   border-bottom: 0.5vh #003A6B solid;
@@ -16,7 +17,7 @@
 .field {
   padding-top: 5vh;
   padding-bottom: 5vh;
-  font-size: 20vh;
+  font-size: 15vh;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   animation: slideInFromBottomField;
   animation-duration: 1s;
@@ -24,7 +25,7 @@
 }
 
 .content {
-  font-size: 10vh;
+  font-size: 15vh;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   animation: slideInFromBottomContent;
   animation-duration: 2s;
