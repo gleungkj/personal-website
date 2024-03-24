@@ -6,6 +6,7 @@
 
 .table {
     margin-left: 10%;
+    padding-left: 5%;
     overflow: auto;
     height: 75vh;
     scrollbar-color: #003A6B transparent;

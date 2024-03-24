@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import styles from "./layout.module.css"
 import Image from "next/image";
 import bannerTemplate from '@/constants/bannerTemplate.jpg'
+import { BackgroundLayout } from "@/components/Background/BackgroundLayout";
 
 const roboto = Roboto({ weight: "400", subsets: ['latin'] });
 
@@ -31,6 +32,7 @@ export default async function RootLayout({
           <div className={styles.rootLayout} >
 
           <Header isLoggedIn={isLoggedIn}/>
+          <BackgroundLayout />
           <Image className={styles.background}
           src={bannerTemplate}
           fill={true}

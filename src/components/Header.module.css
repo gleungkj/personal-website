@@ -10,10 +10,6 @@
     align-items: center;
   }
 
-.homeButton {
-    max-width: 5%;    
-  }
-
 .link {
     display: flex;
     height: 5vh;
@@ -42,6 +38,7 @@
     font-size: 1.5vw;
     border-bottom: 0.5vh solid;
     border-color: #003A6B;
+    z-index: 5
 }
 
 .account {
