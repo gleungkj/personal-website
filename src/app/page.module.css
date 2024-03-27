@@ -18,18 +18,24 @@
   padding-top: 5vh;
   padding-bottom: 5vh;
   font-size: 15vh;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 900;
+  font-family: 'Verdana', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   animation: slideInFromBottomField;
   animation-duration: 1s;
   transition-timing-function: ease-in;
+  opacity: 80%;
+  color: rgb(3, 3, 39);
 }
 
 .content {
-  font-size: 15vh;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 10vh;
+  font-family: 'Verdana', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 700;
   animation: slideInFromBottomContent;
   animation-duration: 2s;
   transition-timing-function: ease-in-out;
+  opacity: 80%;
+  color: rgb(3, 3, 39);
 }
 
 .contentPanel::-webkit-scrollbar-thumb {
@@ -47,7 +53,7 @@
     transform: translateY(100%)
   }
   to {
-    opacity: 1;
+    opacity: 80%;
     transform: translateY(0);
   }  
 }
@@ -62,7 +68,7 @@
     transform: translateY(100%)
   }
   100% {
-    opacity: 1;
+    opacity: 80%;
     transform: translateY(0);
   }  
 }
