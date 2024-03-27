@@ -36,7 +36,7 @@ export const ExperienceContractedPanel = ({data, isExpanded, setPanelExpanded}: 
                 Experience
                 </div>
                 <div key={`contractedPanelContent-${data.id}`}className={styles.contentDetails}>
-                {data.content.split('\n').map((content) => (<div>{content}</div>))}
+                {data.content.split('\n').map((content, index) => (<div key={`data-${index}`}>{content}</div>))}
                 </div>
             </div>
             <div className={styles.contentInstruction}>
