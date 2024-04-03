@@ -25,7 +25,7 @@ export const ExperienceExpandedPanel = ({data, isExpanded, setPanelExpanded}: IE
 
     useEffect(() => {
         expandPanelAnimation()
-    },[])
+    })
 
     const handleClick = async (): Promise<void> => {
         await animateContentScope(contentScope.current, initialContentFrame, {ease: 'easeInOut', duration: 0.5})
