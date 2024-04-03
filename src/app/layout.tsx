@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider, auth } from "@clerk/nextjs";
-import { Header } from "@/components/Header";
+import { Header } from "@/components/Header/Header";
 import styles from "./layout.module.css"
 import Image from "next/image";
 import bannerTemplate from '@/constants/bannerTemplate.jpg'

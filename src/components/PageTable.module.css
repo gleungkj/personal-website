@@ -5,10 +5,10 @@
 }
 
 .table {
-    margin-left: 10%;
-    padding-left: 5%;
+    margin-left: 6vw;
+    padding-left: 5vw;
     overflow: auto;
-    height: 75vh;
+    height: 85vh;
     scrollbar-color: #003A6B transparent;
     border-bottom: 0.5vh #003A6B solid;
 }

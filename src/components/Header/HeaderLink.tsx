@@ -12,7 +12,7 @@ export const HeaderLink = ({href, label}: IHeaderLinkProps): JSX.Element => {
 
     return (
         <motion.div 
-        initial={{opacity:0, y: "50%"}} animate={{y: 0}} whileHover={{y: "-25%"}} transition={{ease:'easeInOut'}}>
+        initial={{opacity:0, y: "50%"}} animate={{y: 0}} whileHover={{y: "-20%"}} transition={{ease:'easeInOut'}}>
             <Link href={href} className={styles.link}>{label}</Link>
         </motion.div>
     )
