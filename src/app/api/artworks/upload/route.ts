@@ -9,9 +9,9 @@ export async function POST(request: Request): Promise<NextResponse> {
 
   const { userId, orgRole } = await auth()
 
-  console.log(body.payload)
+  console.warn(body.payload)
 
-  console.log(process.env.BLOB_READ_WRITE_TOKEN)
+  console.warn(process.env.BLOB_READ_WRITE_TOKEN)
 
   try {
 
@@ -19,7 +19,7 @@ export async function POST(request: Request): Promise<NextResponse> {
       throw new Error('Bad request')
     }
 
-    console.log('uploading file')
+    console.warn('uploading file')
 
     const jsonResponse = await handleUpload({
       body,
@@ -38,7 +38,7 @@ export async function POST(request: Request): Promise<NextResponse> {
       },
       onUploadCompleted: async ({ blob, tokenPayload }) => {    
         
-        console.log('blob upload completed', blob, tokenPayload);
+        console.warn('blob upload completed', blob, tokenPayload);
         try {
           
         } catch (error) {
@@ -47,9 +47,9 @@ export async function POST(request: Request): Promise<NextResponse> {
       },
     });
 
-    console.log(jsonResponse)
+    console.warn(jsonResponse)
 
-    console.log('upload complete')
+    console.warn('upload complete')
    
     return NextResponse.json(jsonResponse);
   } catch (error) {
@@ -66,8 +66,8 @@ export async function DELETE(request: Request): Promise<NextResponse> {
 
   const imageURL = (await request.json()) as string
 
-  console.log('getting body')
-  console.log(imageURL)
+  console.warn('getting body')
+  console.warn(imageURL)
 
   try {
 
@@ -77,7 +77,7 @@ export async function DELETE(request: Request): Promise<NextResponse> {
 
     await del(imageURL)
 
-    console.log(`image deleted, original URL: ${imageURL}`)
+    console.warn(`image deleted, original URL: ${imageURL}`)
    
     return new NextResponse();
   } catch (error) {

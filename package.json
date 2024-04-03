@@ -27,8 +27,9 @@
     "pg": "^8.11.3",
     "react": "^18",
     "react-dom": "^18",
+    "semver": "^7.6.0",
     "ts-node": "^10.9.2",
-    "vercel": "^33.0.1",
+    "vercel": "^33.6.2",
     "whatwg-fetch": "^3.6.20"
   },
   "devDependencies": {
@@ -40,6 +41,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "dotenv": "^16.4.5",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
@@ -52,5 +54,10 @@
     "ts-jest": "^29.1.2",
     "typescript": "^5"
   },
-  "type": "module"
+  "type": "module",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
