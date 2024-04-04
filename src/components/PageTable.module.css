@@ -10,7 +10,6 @@
     overflow: auto;
     height: 85vh;
     scrollbar-color: #003A6B transparent;
-    border-bottom: 0.5vh #003A6B solid;
 }
 
 .content {

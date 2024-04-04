@@ -34,6 +34,7 @@
 }
   
 .header {
+    height: 8vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -43,7 +44,8 @@
     padding-bottom: 0.5vh;
     font-size: 1.5vw;
     background-color: #bac1df;
-    z-index: 5
+    z-index: 5;
+    opacity: 80%;
 }
 
 .account {

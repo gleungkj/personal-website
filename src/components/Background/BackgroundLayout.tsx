@@ -9,8 +9,6 @@ export const BackgroundLayout: React.FC = (): JSX.Element => {
     
     const [scope, animate] = useAnimate()
 
-    
-
     useEffect(() => {
         animate(scope.current, animatedLeftBorderOnLoad, {ease: easeInOut, duration: 1})
     })
