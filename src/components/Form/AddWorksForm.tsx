@@ -1,7 +1,6 @@
 'use client'
 
 import { type PutBlobResult } from '@vercel/blob';
-import { upload } from '@vercel/blob/client'
 import styles from '@/components/Button/Button.module.css'
 import { useRef, useState } from "react";
 import { ILoggedInUserDetails, IWebsiteContents } from '@/constants/websiteContents';
@@ -25,17 +24,18 @@ export const AddWorksForm = ({websiteContents,loggedInUserDetails}: IAddWorksFor
           }
  
           const file = inputFileRef.current.files[0];
-         
-          const newBlob: PutBlobResult = await upload(file.name, file, {
-            access: 'public',
-            handleUploadUrl: '/api/artworks/upload',
-            clientPayload: JSON.stringify({
-              page: websiteContents.page,
-              field: websiteContents.field
-            })
-          });
 
-          await setBlob(newBlob);
+          const response = await fetch(
+            `/api/artworks/upload?filename=${file.name}`,
+            {
+              method: 'POST',
+              body: file,
+            },
+          );
+ 
+          const newBlob = (await response.json()) as PutBlobResult;
+ 
+          setBlob(newBlob);
 
         } catch (error) {
             return new Error()

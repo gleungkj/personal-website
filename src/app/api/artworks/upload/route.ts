@@ -1,17 +1,18 @@
 import { handleUpload, type HandleUploadBody } from '@vercel/blob/client';
 import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs'
-import { del } from '@vercel/blob';
+import { del, put } from '@vercel/blob';
  
 export async function POST(request: Request): Promise<NextResponse> {
 
-  const body = (await request.json()) as HandleUploadBody;
-
   const { userId, orgRole } = await auth()
 
-  console.warn(body.payload)
 
   console.warn(process.env.BLOB_READ_WRITE_TOKEN)
+
+  if (request.body === null) {
+    throw new Error
+  }
 
   try {
 
@@ -21,37 +22,19 @@ export async function POST(request: Request): Promise<NextResponse> {
 
     console.warn('uploading file')
 
-    const jsonResponse = await handleUpload({
-      body,
-      request,
-      onBeforeGenerateToken: async (
-        clientPayload: string | null
-      ) => {
-        
-        if (clientPayload === null) {
-            throw new Error('Unable to upload file');
-        } 
-        return {
-          allowedContentTypes: ['image/jpeg', 'image/png', 'image/gif'],
-          tokenPayload: clientPayload,
-        };
-      },
-      onUploadCompleted: async ({ blob, tokenPayload }) => {    
-        
-        console.warn('blob upload completed', blob, tokenPayload);
-        try {
-          
-        } catch (error) {
-          throw new Error('Could not complete upload');
-        }
-      },
+    const { searchParams } = new URL(request.url);
+    const filename = searchParams.get('filename') || '';
+
+    console.warn(filename)
+ 
+    const blob = await put(filename, request.body, {
+      access: 'public',
     });
 
-    console.warn(jsonResponse)
+  console.warn('upload completed')
+ 
+  return NextResponse.json(blob);
 
-    console.warn('upload complete')
-   
-    return NextResponse.json(jsonResponse);
   } catch (error) {
     return NextResponse.json(
       { error: (error as Error).message },
