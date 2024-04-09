@@ -5,13 +5,23 @@
   min-height: 85vh;
 }
 
-.contentPanel {
-  margin-left: 10vw;
+.contentPanel 
+/* these properties should match .table in pageTable.module.css*/
+{
+  margin-left: 6vw;
   padding-left: 5vw;
-  height: 75vh;
+  height: 85vh;
   scrollbar-color: #003A6B transparent;
-  border-bottom: 0.5vh #003A6B solid;
   overflow: auto;
+}
+
+.contentPanel::-webkit-scrollbar-thumb {
+  background: #003A6B;
+  border-radius: 1vw
+}
+
+.contentPanel::-webkit-scrollbar {
+  background: transparent;
 }
 
 .field {

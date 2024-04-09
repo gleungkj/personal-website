@@ -2,9 +2,8 @@
 .grid {
     display: grid;
     grid-template-columns: 
-    [first-column]5% [rest]repeat(5, minmax(20%, auto));
-    max-width: 100%;
-    width: var(--max-width);
+    [first-column]2% [middle-column]repeat(6, minmax(10%, auto)) [last-column]5%;
+    width: 100%;
     text-align: center;
     column-gap: 2vw;
     align-items: center;
@@ -17,34 +16,42 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    color:floralwhite;
-    font-weight: 800;
+    color: #0e1122;
+    font-weight: 500;
+}
+
+.websiteAuthor {
+    font-size: 2vw;
+    font-weight: 700
+}
+
+.linkListStart {
+    grid-column-start: 5;
 }
 
 .linkDeveloper {
-    grid-column-start: 6;
-    font-size: 1vw;
+    grid-column-start: 8;
 }
   
 .header {
+    height: 8vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    max-width: 100%;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 3vh;
-    padding-bottom: 2vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-top: 1vh;
+    padding-bottom: 0.5vh;
     font-size: 1.5vw;
-    border-bottom: 0.5vh solid;
-    border-color: #003A6B;
-    z-index: 5
+    background-color: #bac1df;
+    z-index: 5;
+    opacity: 80%;
 }
 
 .account {
     display: flex;
     flex-direction: row;
-    height: 3vw;
+    height: 3vh;
     justify-content: center;
     text-align: center;
     align-items: center;

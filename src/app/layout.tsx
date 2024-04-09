@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider, auth } from "@clerk/nextjs";
-import { Header } from "@/components/Header";
+import { Header } from "@/components/Header/Header";
 import styles from "./layout.module.css"
 import Image from "next/image";
 import bannerTemplate from '@/constants/bannerTemplate.jpg'
 import { BackgroundLayout } from "@/components/Background/BackgroundLayout";
+import { Footer } from "@/components/Footer/Footer";
 
 const roboto = Roboto({ weight: "400", subsets: ['latin'] });
 
@@ -38,6 +39,7 @@ export default async function RootLayout({
           fill={true}
           alt='Background image'/>
           {children}
+          <Footer />
           </div>
         </body>
       </html>

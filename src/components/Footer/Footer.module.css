@@ -1,0 +1,7 @@
+.footer {
+    height: 7vh;
+    width: 100%;
+    background-color: #c3c9e3;
+    z-index: 5;
+    opacity: 50%;
+}
