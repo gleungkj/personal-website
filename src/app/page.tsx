@@ -7,6 +7,7 @@ import { ContractedPanel } from '@/components/Panel/ContractedPanel/ContractedPa
 import { da } from '@faker-js/faker'
 import Link from 'next/link'
 import { TreeBranch } from '@/components/Background/TreeBranch/TreeBranch'
+import { BusinessNamePanel } from '@/components/Panel/BusinessNamePanel/BusinessNamePanel'
 
 export default async function Home() {
     const homeData: IWebsiteContents[] | null = await prisma.website.findMany({
@@ -26,8 +27,10 @@ export default async function Home() {
     return frontPageData !== undefined ? (
         <main className={styles.main}>
             <div className={styles.contentPanel}>
-                <div className={styles.field}>{frontPageData.field}</div>
-                <div className={styles.content}>{frontPageData.content}</div>
+                <div className={styles.contentPanelWithTree}>
+                    <TreeBranch />
+                    <BusinessNamePanel data={frontPageData} />
+                </div>
                 <div>
                     {experienceData.map((data) => (
                         <div
