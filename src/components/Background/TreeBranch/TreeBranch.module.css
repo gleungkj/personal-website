@@ -1,0 +1,25 @@
+.treeBranch {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative
+}
+
+.treeNode {
+    position: absolute;
+    height: 3vh;
+    width: 3vh;
+    border-radius: 50%;
+    background-color: #003A6B;
+}
+
+.treeArm {
+    position: relative;
+    margin-left: 0.5vw;
+    height: 1vh;
+    background-color: #003A6B;
+    width: 10vw;
+    offset-position: right;
+    offset: right 10vw;
+}
+

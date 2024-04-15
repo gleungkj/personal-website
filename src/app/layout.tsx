@@ -6,7 +6,7 @@ import { Header } from "@/components/Header/Header";
 import styles from "./layout.module.css"
 import Image from "next/image";
 import bannerTemplate from '@/constants/bannerTemplate.jpg'
-import { BackgroundLayout } from "@/components/Background/BackgroundLayout";
+import { BackgroundLayout } from "@/components/Background/BackgroundLeftBorder/BackgroundLayout";
 import { Footer } from "@/components/Footer/Footer";
 
 const roboto = Roboto({ weight: "400", subsets: ['latin'] });

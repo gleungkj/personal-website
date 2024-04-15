@@ -9,13 +9,16 @@ interface IExperienceContractPanelProps {
     setPanelExpanded: Dispatch<SetStateAction<boolean>>
 }
 
-const animatedFrame: AnimationProps['animate'] = {   
-        scale: 0.95, 
-        transition:{duration: 0.5},  
+const animatedFrame: AnimationProps['animate'] = {
+    scale: 0.95,
+    transition: { duration: 0.5 },
 }
 
-export const ExperienceContractedPanel = ({data, isExpanded, setPanelExpanded}: IExperienceContractPanelProps): JSX.Element => {
-
+export const ExperienceContractedPanel = ({
+    data,
+    isExpanded,
+    setPanelExpanded,
+}: IExperienceContractPanelProps): JSX.Element => {
     const [scope, animate] = useAnimate()
 
     const handleClick = async (): Promise<void> => {
@@ -24,23 +27,36 @@ export const ExperienceContractedPanel = ({data, isExpanded, setPanelExpanded}: 
     }
 
     return (
-        <motion.div ref={scope}
-        key={data.id} 
-        className={styles.experienceContractedPanel} onClick={handleClick} data-testid='experienceContractedPanel' whileHover={{
-            scale: 1.05, 
-            transition:{duration: 0.25}
-        }} 
+        <motion.div
+            ref={scope}
+            key={data.id}
+            className={styles.experienceContractedPanel}
+            onClick={handleClick}
+            data-testid="experienceContractedPanel"
+            whileHover={{
+                scale: 1.05,
+                transition: { duration: 0.25 },
+                opacity: 1,
+            }}
         >
             <div className={styles.experienceContent}>
-                <div key={`contractedPanelExperience-${data.id}`} className={styles.contentHeader}>
-                Experience
+                <div
+                    key={`contractedPanelExperience-${data.id}`}
+                    className={styles.contentHeader}
+                >
+                    Experience
                 </div>
-                <div key={`contractedPanelContent-${data.id}`}className={styles.contentDetails}>
-                {data.content.split('\n').map((content, index) => (<div key={`data-${index}`}>{content}</div>))}
+                <div
+                    key={`contractedPanelContent-${data.id}`}
+                    className={styles.contentDetails}
+                >
+                    {data.content.split('\n').map((content, index) => (
+                        <div key={`data-${index}`}>{content}</div>
+                    ))}
                 </div>
             </div>
             <div className={styles.contentInstruction}>
-            Click on panel to expand            
+                Click on panel to expand
             </div>
         </motion.div>
     )
