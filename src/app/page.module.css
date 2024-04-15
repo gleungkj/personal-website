@@ -1,84 +1,89 @@
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 85vh;
+    width: 100%;
+}
+
+.contentPanelWithTree {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .contentPanel 
-/* these properties should match .table in pageTable.module.css*/
-{
-  margin-left: 6vw;
-  padding-left: 5vw;
-  height: 85vh;
-  scrollbar-color: #003A6B transparent;
-  overflow: auto;
+/* these properties should match .table in pageTable.module.css*/ {
+    padding-left: 2.25vw;
+    height: 85vh;
+    scrollbar-color: #003a6b transparent;
+    overflow: auto;
 }
 
 .contentPanel::-webkit-scrollbar-thumb {
-  background: #003A6B;
-  border-radius: 1vw
+    background: #003a6b;
+    border-radius: 1vw;
 }
 
 .contentPanel::-webkit-scrollbar {
-  background: transparent;
+    background: transparent;
 }
 
 .field {
-  padding-top: 5vh;
-  padding-bottom: 5vh;
-  font-size: 15vh;
-  font-weight: 900;
-  font-family: 'Verdana', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  animation: slideInFromBottomField;
-  animation-duration: 1s;
-  transition-timing-function: ease-in;
-  opacity: 80%;
-  color: rgb(3, 3, 39);
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    font-size: 15vh;
+    font-weight: 900;
+    font-family: 'Verdana', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    animation: slideInFromBottomField;
+    animation-duration: 1s;
+    transition-timing-function: ease-in;
+    opacity: 80%;
+    color: rgb(3, 3, 39);
 }
 
 .content {
-  font-size: 10vh;
-  font-family: 'Verdana', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-weight: 700;
-  animation: slideInFromBottomContent;
-  animation-duration: 2s;
-  transition-timing-function: ease-in-out;
-  opacity: 80%;
-  color: rgb(3, 3, 39);
+    font-size: 10vh;
+    font-family: 'Verdana', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    animation: slideInFromBottomContent;
+    animation-duration: 2s;
+    transition-timing-function: ease-in-out;
+    opacity: 80%;
+    color: rgb(3, 3, 39);
 }
 
 .contentPanel::-webkit-scrollbar-thumb {
-  background: #003A6B;
-  border-radius: 1vw;
+    background: #003a6b;
+    border-radius: 1vw;
 }
 
 .contentPanel::-webkit-scrollbar {
-  background: transparent;
+    background: transparent;
 }
 
 @keyframes slideInFromBottomField {
-  from {
-    opacity: 0;
-    transform: translateY(100%)
-  }
-  to {
-    opacity: 80%;
-    transform: translateY(0);
-  }  
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 80%;
+        transform: translateY(0);
+    }
 }
 
 @keyframes slideInFromBottomContent {
-  0% {
-    opacity: 0;
-    transform: translateY(100%)
-  }
-  50% {
-    opacity: 0;
-    transform: translateY(100%)
-  }
-  100% {
-    opacity: 80%;
-    transform: translateY(0);
-  }  
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 80%;
+        transform: translateY(0);
+    }
 }
