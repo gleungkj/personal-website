@@ -27,7 +27,7 @@ export default async function Home() {
     return frontPageData !== undefined ? (
         <main className={styles.main}>
             <div className={styles.contentPanel}>
-                <div className={styles.contentPanelWithTree}>
+                <div className={styles.businessNamePanelTree}>
                     <TreeBranch />
                     <BusinessNamePanel data={frontPageData} />
                 </div>
