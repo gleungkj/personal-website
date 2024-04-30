@@ -1,17 +1,19 @@
-import { Dispatch, SetStateAction } from 'react'
+import { Dispatch, SetStateAction, useEffect } from 'react'
 import styles from './ExperienceContractedPanel.module.css'
 import { IWebsiteContents } from '@/constants/websiteContents'
 import { AnimationProps, motion, useAnimate } from 'framer-motion'
+import {
+    animatedFrameOnClick,
+    animatedFrameOnHover,
+    animatedPanelFrameFromTree,
+    animatedPanelFrameOnLoad,
+    initialPanelFrame,
+} from './animationFrames'
 
 interface IExperienceContractPanelProps {
     data: IWebsiteContents
     isExpanded: boolean
     setPanelExpanded: Dispatch<SetStateAction<boolean>>
-}
-
-const animatedFrame: AnimationProps['animate'] = {
-    scale: 0.95,
-    transition: { duration: 0.5 },
 }
 
 export const ExperienceContractedPanel = ({
@@ -21,10 +23,25 @@ export const ExperienceContractedPanel = ({
 }: IExperienceContractPanelProps): JSX.Element => {
     const [scope, animate] = useAnimate()
 
+    const expandPanelAnimation = async () => {
+        await animate(scope.current, animatedPanelFrameFromTree, {
+            ease: 'easeInOut',
+            duration: 0.5,
+        })
+        await animate(scope.current, animatedPanelFrameOnLoad, {
+            ease: 'easeInOut',
+            duration: 0.5,
+        })
+    }
+
     const handleClick = async (): Promise<void> => {
-        await animate(scope.current, animatedFrame)
+        await animate(scope.current, animatedFrameOnClick)
         setPanelExpanded(!isExpanded)
     }
+
+    useEffect(() => {
+        expandPanelAnimation()
+    })
 
     return (
         <motion.div
@@ -33,11 +50,8 @@ export const ExperienceContractedPanel = ({
             className={styles.experienceContractedPanel}
             onClick={handleClick}
             data-testid="experienceContractedPanel"
-            whileHover={{
-                scale: 1.05,
-                transition: { duration: 0.25 },
-                opacity: 1,
-            }}
+            whileHover={animatedFrameOnHover}
+            initial={initialPanelFrame}
         >
             <div className={styles.experienceContent}>
                 <div
