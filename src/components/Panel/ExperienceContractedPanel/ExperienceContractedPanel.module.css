@@ -23,7 +23,7 @@
 .contentHeader {
     font-size: 5vh;
     align-self: center;
-    width: 30vh;
+    width: 15vw;
 }
 
 .contentDetails {
@@ -42,5 +42,7 @@
 }
 
 .contentInstruction {
+    display: flex;
     align-self: center;
+    justify-content: center;
 }
