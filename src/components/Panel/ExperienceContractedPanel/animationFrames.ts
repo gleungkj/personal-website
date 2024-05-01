@@ -3,6 +3,7 @@ import { AnimationProps, TargetAndTransition } from 'framer-motion'
 export const initialPanelFrame: AnimationProps['initial'] = {
     height: '3vh',
     width: 0,
+    color: 'rgba(0,0,0,0)',
 }
 
 export const animatedPanelFrameFromTree: AnimationProps['animate'] = {
@@ -11,6 +12,8 @@ export const animatedPanelFrameFromTree: AnimationProps['animate'] = {
 
 export const animatedPanelFrameOnLoad: AnimationProps['animate'] = {
     height: '20vh',
+    opacity: 1,
+    color: 'rgba(3, 3, 39,1)',
 }
 
 export const animatedFrameOnClick: AnimationProps['animate'] = {

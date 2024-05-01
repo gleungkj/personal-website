@@ -1,13 +1,8 @@
 import { IWebsiteContents, websitePageType } from '@/constants/websiteContents'
 import styles from './page.module.css'
 import { prisma } from '../../server'
-import { ExperiencePanel } from '@/components/Panel/ExperiencePanel'
 import { getListOfFirstEntry } from '@/services/getListOfFirstEntry'
-import { ContractedPanel } from '@/components/Panel/ContractedPanel/ContractedPanel'
-import { da } from '@faker-js/faker'
-import Link from 'next/link'
-import { TreeBranch } from '@/components/Background/TreeBranch/TreeBranch'
-import { BusinessNamePanel } from '@/components/Panel/BusinessNamePanel/BusinessNamePanel'
+import { HomeScreen } from '@/components/HomeScreen/HomeScreen'
 
 export default async function Home() {
     const homeData: IWebsiteContents[] | null = await prisma.website.findMany({
@@ -24,39 +19,14 @@ export default async function Home() {
         return data.field === 'CV'
     })
 
-    return frontPageData !== undefined ? (
-        <main className={styles.main}>
-            <div className={styles.contentPanel}>
-                <div className={styles.businessNamePanelTree}>
-                    <TreeBranch />
-                    <BusinessNamePanel data={frontPageData} />
-                </div>
-                <div>
-                    {experienceData.map((data) => (
-                        <div
-                            key={data.id}
-                            className={styles.contentPanelWithTree}
-                        >
-                            <TreeBranch />
-                            <ExperiencePanel experienceData={data} />
-                        </div>
-                    ))}
-                </div>
-                <div>
-                    {firstEntryList?.map((data) => (
-                        <div
-                            key={data.id}
-                            className={styles.contentPanelWithTree}
-                        >
-                            <TreeBranch />
-                            <Link href={`/${data.page}`} key={data.id}>
-                                <ContractedPanel data={data} key={data.id} />
-                            </Link>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </main>
+    return frontPageData !== undefined &&
+        firstEntryList !== null &&
+        experienceData !== undefined ? (
+        <HomeScreen
+            firstEntryList={firstEntryList}
+            frontPageData={frontPageData}
+            experienceData={experienceData}
+        />
     ) : (
         <main className={styles.main}>
             <h1>Hello, Dashboard Page!</h1>
