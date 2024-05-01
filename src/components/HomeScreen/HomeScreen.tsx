@@ -26,30 +26,21 @@ export const HomeScreen = ({
                     <TreeBranch />
                     <BusinessNamePanel data={frontPageData} />
                 </div>
-                <div>
-                    {experienceData.map((data) => (
-                        <div
-                            key={data.id}
-                            className={styles.contentPanelWithTree}
-                        >
-                            <TreeBranch />
-                            <ExperiencePanel experienceData={data} />
-                        </div>
-                    ))}
-                </div>
-                <div>
-                    {firstEntryList?.map((data) => (
-                        <div
-                            key={data.id}
-                            className={styles.contentPanelWithTree}
-                        >
-                            <TreeBranch />
-                            <Link href={`/${data.page}`} key={data.id}>
-                                <ContractedPanel data={data} key={data.id} />
-                            </Link>
-                        </div>
-                    ))}
-                </div>
+                {experienceData.map((data) => (
+                    <div className={styles.contentPanelWithTree} key={data.id}>
+                        <TreeBranch />
+                        <ExperiencePanel experienceData={data} />
+                    </div>
+                ))}
+
+                {firstEntryList?.map((data) => (
+                    <div className={styles.contentPanelWithTree} key={data.id}>
+                        <TreeBranch />
+                        <Link href={`/${data.page}`} key={data.id}>
+                            <ContractedPanel data={data} key={data.id} />
+                        </Link>
+                    </div>
+                ))}
             </div>
         </main>
     )

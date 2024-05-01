@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useEffect } from 'react'
 import styles from './ExperienceContractedPanel.module.css'
 import { IWebsiteContents } from '@/constants/websiteContents'
-import { AnimationProps, motion, useAnimate } from 'framer-motion'
+import { motion, stagger, useAnimate } from 'framer-motion'
 import {
     animatedFrameOnClick,
     animatedFrameOnHover,
@@ -24,6 +24,11 @@ export const ExperienceContractedPanel = ({
     const [scope, animate] = useAnimate()
 
     const expandPanelAnimation = async () => {
+        await animate(
+            scope.current,
+            { opacity: 'auto' },
+            { delay: stagger(0.25, { startDelay: 0.5 }), duration: 1 }
+        )
         await animate(scope.current, animatedPanelFrameFromTree, {
             ease: 'easeInOut',
             duration: 0.5,
