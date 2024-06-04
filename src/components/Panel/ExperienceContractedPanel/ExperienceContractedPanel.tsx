@@ -1,7 +1,7 @@
-import { Dispatch, SetStateAction, useEffect } from 'react'
+import { Dispatch, SetStateAction, useCallback, useEffect, useRef } from 'react'
 import styles from './ExperienceContractedPanel.module.css'
 import { IWebsiteContents } from '@/constants/websiteContents'
-import { motion, stagger, useAnimate } from 'framer-motion'
+import { motion, stagger, useAnimate, useInView } from 'framer-motion'
 import {
     animatedFrameOnClick,
     animatedFrameOnHover,
@@ -22,11 +22,12 @@ export const ExperienceContractedPanel = ({
     setPanelExpanded,
 }: IExperienceContractPanelProps): JSX.Element => {
     const [scope, animate] = useAnimate()
+    const isInView = useInView(scope)
 
-    const expandPanelAnimation = async () => {
+    const expandPanelAnimation = useCallback(async () => {
         await animate(
             scope.current,
-            { opacity: 'auto' },
+            { opacity: 0.8 },
             { delay: stagger(0.25, { startDelay: 0.5 }), duration: 1 }
         )
         await animate(scope.current, animatedPanelFrameFromTree, {
@@ -37,7 +38,7 @@ export const ExperienceContractedPanel = ({
             ease: 'easeInOut',
             duration: 0.5,
         })
-    }
+    }, [animate, scope])
 
     const handleClick = async (): Promise<void> => {
         await animate(scope.current, animatedFrameOnClick)
@@ -45,8 +46,10 @@ export const ExperienceContractedPanel = ({
     }
 
     useEffect(() => {
-        expandPanelAnimation()
-    })
+        if (isInView) {
+            expandPanelAnimation()
+        }
+    }, [animate, expandPanelAnimation, isInView, scope])
 
     return (
         <motion.div
