@@ -7,7 +7,6 @@ import { ExperiencePanel } from '../Panel/ExperiencePanel'
 import Link from 'next/link'
 import styles from './HomeScreen.module.css'
 import dynamic from 'next/dynamic'
-import { useRef } from 'react'
 import { motion } from 'framer-motion'
 
 interface IHomeScreenProps {
@@ -33,15 +32,9 @@ export const HomeScreen = ({
     frontPageData,
     experienceData,
 }: IHomeScreenProps): JSX.Element => {
-    const ref = useRef<HTMLDivElement>(null)
-
     return (
         <main className={styles.main}>
-            <motion.div
-                className={styles.contentPanel}
-                id="contentPanel"
-                ref={ref}
-            >
+            <motion.div className={styles.contentPanel} id="contentPanel">
                 <div className={styles.businessNamePanelTree}>
                     <TreeBranch />
                     <BusinessNamePanel data={frontPageData} />
