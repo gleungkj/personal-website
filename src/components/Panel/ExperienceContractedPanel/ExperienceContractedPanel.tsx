@@ -9,7 +9,7 @@ import {
     animatedPanelFrameOnLoad,
     initialPanelFrame,
 } from './animationFrames'
-import { useWindowSize } from './hooks'
+import { useWindowSize } from '@/services/hooks/useWindowSize'
 
 interface IExperienceContractPanelProps {
     data: IWebsiteContents

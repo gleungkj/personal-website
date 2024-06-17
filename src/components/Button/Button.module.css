@@ -1,11 +1,16 @@
 .button {
-    height: 3vh;
-    background-color: #003A6B;
-    color: #E7EDEB;
-    width: 7vw;    
+    background-color: #003a6b;
+    color: #e7edeb;
+    height: fit-content;
+    width: fit-content;
+    font-size: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
 }
 
 .button:disabled {
     background-color: #d3d3d3;
-    color: #808080
+    color: #808080;
 }
