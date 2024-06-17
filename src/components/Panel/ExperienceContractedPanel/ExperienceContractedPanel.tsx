@@ -9,6 +9,7 @@ import {
     animatedPanelFrameOnLoad,
     initialPanelFrame,
 } from './animationFrames'
+import { useWindowSize } from './hooks'
 
 interface IExperienceContractPanelProps {
     data: IWebsiteContents
@@ -21,6 +22,7 @@ export const ExperienceContractedPanel = ({
     isExpanded,
     setPanelExpanded,
 }: IExperienceContractPanelProps): JSX.Element => {
+    const { windowWidth } = useWindowSize()
     const [scope, animate] = useAnimate()
     const isInView = useInView(scope)
 
@@ -68,14 +70,18 @@ export const ExperienceContractedPanel = ({
                 >
                     Experience
                 </div>
-                <div
-                    key={`contractedPanelContent-${data.id}`}
-                    className={styles.contentDetails}
-                >
-                    {data.content.split('\n').map((content, index) => (
-                        <div key={`data-${index}`}>{content}</div>
-                    ))}
-                </div>
+                {windowWidth > 576 ? (
+                    <div
+                        key={`contractedPanelContent-${data.id}`}
+                        className={styles.contentDetails}
+                    >
+                        {data.content.split('\n').map((content, index) => (
+                            <div key={`data-${index}`}>{content}</div>
+                        ))}
+                    </div>
+                ) : (
+                    <div>...</div>
+                )}
             </div>
             <div className={styles.contentInstruction}>
                 Click on panel to expand

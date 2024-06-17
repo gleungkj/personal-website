@@ -46,3 +46,15 @@
     align-self: center;
     justify-content: center;
 }
+
+@media all and (max-width: 800px) {
+    .contentDetails {
+        width: 25vw;
+    }
+}
+
+@media all and (min-width: 801px) and (max-width: 1440px) {
+    .contentDetails {
+        width: 40vw;
+    }
+}
