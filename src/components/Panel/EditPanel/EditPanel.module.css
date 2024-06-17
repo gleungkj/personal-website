@@ -11,3 +11,10 @@
     flex-direction: row;
     height: 3vh;
 }
+
+@media all and (max-width: 1080px) {
+    .panelButtons {
+        flex-direction: column;
+        height: 6vh;
+    }
+}
