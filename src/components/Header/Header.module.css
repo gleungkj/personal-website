@@ -1,13 +1,14 @@
-
 .grid {
     display: grid;
-    grid-template-columns: 
-    [first-column]2% [middle-column]repeat(6, minmax(10%, auto)) [last-column]5%;
+    grid-template-columns: [first-column]2% [middle-column]repeat(
+            6,
+            minmax(10%, auto)
+        ) [last-column]5%;
     width: 100%;
     text-align: center;
     column-gap: 2vw;
     align-items: center;
-  }
+}
 
 .link {
     display: flex;
@@ -22,7 +23,7 @@
 
 .websiteAuthor {
     font-size: 2vw;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .linkListStart {
@@ -32,9 +33,9 @@
 .linkDeveloper {
     grid-column-start: 8;
 }
-  
+
 .header {
-    height: 8vh;
+    height: 10vh;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -55,4 +56,4 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-  }
+}
