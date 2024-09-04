@@ -6,12 +6,18 @@ import ReactLogo from '@/app/assets/reactLogo'
 import NextJSLogo from '@/app/assets/nextJSLogo'
 
 export const Footer = (): JSX.Element => {
+    const logos = [
+        <NextJSLogo height="5vh" width="5vh" />,
+        <VercelLogo height="5vh" width="10vw" />,
+        <ReactLogo height="5vh" width="5vh" />,
+    ]
+
     return (
         <div className={styles.footer}>
-            <div>Powered by </div>
-            <NextJSLogo height="56px" width="216px" />
-            <VercelLogo height="56px" width="216px" />
-            <ReactLogo height="56px" width="216px" />
+            <div className={styles.footerLogo}>Powered by </div>
+            {logos.map((logo) => (
+                <div className={styles.footerLogo}>{logo}</div>
+            ))}
         </div>
     )
 }
