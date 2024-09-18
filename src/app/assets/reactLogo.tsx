@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 type SVGProps = React.SVGProps<SVGSVGElement>
-const SVGComponent: React.FC<SVGProps> = (props) => (
+const ReactLogo: React.FC<SVGProps> = (props) => (
     <svg
         height={2500}
         viewBox="175.7 78 490.6 436.9"
@@ -15,4 +15,11 @@ const SVGComponent: React.FC<SVGProps> = (props) => (
         </g>
     </svg>
 )
-export default SVGComponent
+
+export const ReactLogoComponent = () => {
+    return (
+        <a href="https://react.dev/">
+            <ReactLogo height="5vh" width="5vh" />
+        </a>
+    )
+}

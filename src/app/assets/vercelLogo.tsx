@@ -2,7 +2,7 @@ import * as React from 'react'
 
 type SVGProps = React.SVGProps<SVGSVGElement>
 
-const SVGComponent: React.FC<SVGProps> = (props) => (
+const VercelLogo: React.FC<SVGProps> = (props) => (
     <svg
         fill="none"
         height={2500}
@@ -17,4 +17,11 @@ const SVGComponent: React.FC<SVGProps> = (props) => (
         />
     </svg>
 )
-export default SVGComponent
+
+export const VercelLogoComponent = (): JSX.Element => {
+    return (
+        <a href="https://vercel.com/">
+            <VercelLogo height="5vh" width="10vw" />
+        </a>
+    )
+}

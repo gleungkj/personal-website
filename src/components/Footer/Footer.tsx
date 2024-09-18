@@ -1,22 +1,26 @@
 'use client'
 
 import styles from './Footer.module.css'
-import VercelLogo from '@/app/assets/vercelLogo'
-import ReactLogo from '@/app/assets/reactLogo'
-import NextJSLogo from '@/app/assets/nextJSLogo'
+import { VercelLogoComponent } from '@/app/assets/vercelLogo'
+import { ReactLogoComponent } from '@/app/assets/reactLogo'
+import { NextJSLogoComponent } from '@/app/assets/nextJSLogo'
 
 export const Footer = (): JSX.Element => {
     const logos = [
-        <NextJSLogo height="5vh" width="5vh" />,
-        <VercelLogo height="5vh" width="10vw" />,
-        <ReactLogo height="5vh" width="5vh" />,
+        <NextJSLogoComponent key="NextJSLogo" />,
+        <VercelLogoComponent key="VercelLogo" />,
+        <ReactLogoComponent key="ReactLogo" />,
     ]
 
     return (
-        <div className={styles.footer}>
-            <div className={styles.footerLogo}>Powered by </div>
+        <div className={styles.footer} key="logoList">
+            <div className={styles.footerLogo} key="footerLogos">
+                Powered by
+            </div>
             {logos.map((logo) => (
-                <div className={styles.footerLogo}>{logo}</div>
+                <div className={styles.footerLogo} key="logo">
+                    {logo}
+                </div>
             ))}
         </div>
     )
