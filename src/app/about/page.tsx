@@ -1,6 +1,6 @@
 import { prisma } from '@/../server'
 import { IWebsiteContents, websitePageType } from '@/constants/websiteContents'
-import { auth } from '@clerk/nextjs'
+import { auth } from '@clerk/nextjs/server'
 import dynamic from 'next/dynamic'
 
 const PageTableComponent = dynamic(() =>

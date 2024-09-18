@@ -5,7 +5,7 @@ import {
     IWebsiteContents,
     websitePageType,
 } from '@/constants/websiteContents'
-import { auth } from '@clerk/nextjs'
+import { auth } from '@clerk/nextjs/server'
 import { list } from '@vercel/blob'
 
 export default async function WorksPage() {
